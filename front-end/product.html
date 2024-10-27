@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu sản phẩm</title>
+    <link rel="stylesheet" href="./css/product.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="#about">Về chúng tôi</a></li>
+            <li><a href="#products">Sản phẩm</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="intro">
+    <h1>Giới thiệu sản phẩm</h1>
+    <p>Chúng tôi cung cấp các sản phẩm chất lượng cao và giá cả hợp lý.</p>
+    <button class="btn-animate" onclick="toggleSidebar()">Bộ lọc sản phẩm</button>
+</section>
+
+<!-- tours -->
+<section class="tour-list" id="tourList"></section>
+
+
+<!-- Sidebar cho chức năng lọc sản phẩm -->
+<div id="sidebar" class="sidebar">
+    <h2>Bộ lọc Tour</h2>
+    <button onclick="toggleSidebar()" class="close-btn">&times;</button>
+    <form>
+        <label for="price">Khoảng giá:</label>
+        <select id="price">
+            <option value="1tr-5tr">Dưới 3 Triệu</option>
+            <option value="0-500k">3 Triệu - 5 Triệu</option>
+            <option value="500k-1tr">5 Triệu - 10 Triệu</option>
+        </select>
+
+        <label for="category">Danh mục:</label>
+        <select id="category">
+            <option value="electronics">Điện tử</option>
+            <option value="fashion">Thời trang</option>
+            <option value="home">Đồ gia dụng</option>
+        </select>
+
+        <button type="submit" class="filter-btn">Áp dụng</button>
+    </form>
+</div>
+
+<script src="./js/product.js"></script>
+</body>
+</html>
