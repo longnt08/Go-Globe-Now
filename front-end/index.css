@@ -1,0 +1,258 @@
+/* styles.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-image: url('../picture/d6c7a0d2f4e97ff16f96c494932562bb.png'); /* Replace with actual background image path */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Improved header styles */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .logo {
+    color: #333;
+    font-family: 'Philosopher', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+  }
+  
+  .navigation a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  
+  .navigation a:hover {
+    color: #FFF;
+  }
+  
+  .menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .search-watch-container {
+    display: flex;
+    font-family: 'Lemon', sans-serif;
+    width: 100%;
+    margin-top: 20px;
+    padding-left: 300px; 
+  }
+  
+  
+  .hero-text {
+    color: #FFF;
+    font-family: 'Lemon', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    align-items: flex-start; /* Căn trái */
+    text-align: left;
+
+  }
+  
+  .hero-text h1 {
+    font-size: 72px;
+    color: #FFF;
+    text-align: left;
+    font-family: 'Lemon', sans-serif;
+   
+  }
+  
+  .hero-text h2 {
+    font-size: 32px;
+    color: #FFF;
+    margin-bottom: 20px;
+    text-align: left;
+    font-family: 'Lemon', sans-serif;
+  }
+  
+  .view-program-btn {
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Căn trái */
+    align-self: flex-start; /* Căn chính nút */
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 1px solid #FFF;
+    background-color: transparent;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+    font-family: 'Philosopher', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    font-family: 'Times New Roman';
+    font-size: larger;
+  }
+  
+
+.view-program-btn:hover {
+  background-color: rgba(255, 255, 255, 0.8); /* Tạo nền mờ khi hover */
+  color: #333;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Tăng hiệu ứng bóng khi hover */
+}
+
+  .search-bar {
+    position: relative;
+    width: 300px; /* Fixed width */
+    margin-top: 20px;
+    margin-bottom: 20px; 
+    margin-right: 20px
+    
+  }
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #FFF;
+  }
+  .search-bar input::placeholder {
+    color: #FFF; 
+    opacity: 0.7; 
+    font-family: 'Times New Roman';
+  }
+  
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px 10px 10px 40px; 
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #FFF;
+    font-family: 'Times New Roman';
+    
+  }  
+  .watch-video {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+    color: #FFF;
+    margin-left: 300px; 
+  }  
+  
+  .play-button {
+    font-size: 24px;
+    border: 1px solid #FFF; 
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3); 
+    margin-bottom: 10px; 
+  }
+  
+  .watch-video h3 {
+    font-size: 24px; 
+    margin-bottom: 10px; 
+  }
+  
+  .watch-video p {
+    font-size: 16px;
+    line-height: 1.5; 
+  }
+  
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px;
+    color: #FFF;
+  }
+  
+  .social-icons {
+    display: flex;
+    flex-direction: column; /* Hiển thị icon theo chiều dọc */
+    align-items: flex-start; /* Căn trái icon */
+    position: absolute;
+    left: 40px; 
+  }
+  
+  .social-icons a {
+    margin: 10px 0; 
+    font-size: 24px;
+    text-decoration: none;
+    color: #FFF;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: #d83131;
+    transform: scale(1.1);
+  }
+  
+  .about {
+    max-width: 300px;
+    margin-left:280px;
+    font-family: 'Time New Roman';
+  }
+  .about h3
+  {
+    font-size: 22px; 
+    font-weight: bold; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .about p
+  {
+    font-style: italic;
+  }
+  .about a
+  {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: block; 
+  margin-top: 20px;
+  }
+  
+  .footer a {
+    color: #FFF;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
+  
