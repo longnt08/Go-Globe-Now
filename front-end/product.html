@@ -11,7 +11,7 @@
 <header>
     <nav class="navbar">
         <ul>
-            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="index.html">Trang chủ</a></li>
             <li><a href="#about">Về chúng tôi</a></li>
             <li><a href="#products">Sản phẩm</a></li>
             <li><a href="#contact">Liên hệ</a></li>
@@ -34,21 +34,38 @@
     <h2>Bộ lọc Tour</h2>
     <button onclick="toggleSidebar()" class="close-btn">&times;</button>
     <form>
-        <label for="price">Khoảng giá:</label>
-        <select id="price">
-            <option value="1tr-5tr">Dưới 3 Triệu</option>
-            <option value="0-500k">3 Triệu - 5 Triệu</option>
-            <option value="500k-1tr">5 Triệu - 10 Triệu</option>
+        <!-- min price  -->
+        <label for="min_price">Giá từ:</label>
+        <select id="min_price">
+            <option value="5000000">5 Triệu</option>
+            <option value="10000000">10 Triệu</option>
+            <option value="20000000">20 Triệu</option>
+            <option value="30000000">30 Triệu</option>
         </select>
-
+        <!-- max price  -->
+        <label for="max_price">Đến:</label>
+        <select id="max_price">
+            <option value="10000000">10 Triệu</option>
+            <option value="20000000">20 Triệu</option>
+            <option value="30000000">30 Triệu</option>
+            <option value="40000000">40 Triệu</option>
+            <option value="50000000">50 Triệu</option>
+            <option value="60000000">60 Triệu</option>
+            <option value="70000000">70 Triệu</option>
+            <option value="80000000">80 Triệu</option>
+            <option value="90000000">90 Triệu</option>
+            <option value="100000000">100 Triệu</option>
+        </select>
+        <!-- category  -->
         <label for="category">Danh mục:</label>
         <select id="category">
-            <option value="electronics">Điện tử</option>
-            <option value="fashion">Thời trang</option>
-            <option value="home">Đồ gia dụng</option>
+            <option value="Văn hóa">Văn hóa</option>
+            <option value="Nghỉ dưỡng">Nghỉ dưỡng</option>
+            <option value="Phiêu lưu">Phiêu lưu</option>
+            <option value="Biển">Biển</option>
         </select>
 
-        <button type="submit" class="filter-btn">Áp dụng</button>
+        <button class="filter-btn" onclick="applyFilter()">Áp dụng</button>
     </form>
 </div>
 

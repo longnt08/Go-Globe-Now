@@ -8,7 +8,7 @@ client = MongoClient("mongodb://localhost:27017/")
 db = client.GoGlobeNow
 tours_collection = db.tours
 
-# API get tours
+# API get tours to display in screen
 @api_routes.route('/api/tours', methods=['GET'])
 def get_all_tour():
     # query all tours from mongoDB
@@ -26,3 +26,21 @@ def get_all_tour():
     ]
 
     return jsonify(tours)
+
+# API filter tours
+@api_routes.route('/api/tours', methods=['GET'])
+def get_products():
+    tours_cursor = tours_collection.find()
+
+    min_price = request.args.get('min_price', default=0, type=int)
+    max_price = request.args.get('max_price', default=float('inf'), type=int)
+    category = request.args.get('category', default=None, type=str)
+
+    # filter tours
+    filtered_tours = [
+        tour for tour in tours_cursor
+        if (min_price <= tour['price'] <= max_price) and
+        (category is None or tour['category'] == category)
+    ]
+
+    return jsonify(filtered_tours)

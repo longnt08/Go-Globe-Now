@@ -141,6 +141,10 @@ header {
     margin-bottom: 15px;
 }
 
+.sidebar select {
+    border-radius: 5px;
+}
+
 .filter-btn {
     background-color: #ff1493;
     color: #fff;
