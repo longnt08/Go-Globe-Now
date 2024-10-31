@@ -1,31 +1,24 @@
 let tag = document.getElementsByClassName("myOption");
-console.log(tag);
+let ChiMuc = 2;
+All.setAttribute(
+  "style",
+  `top: 0px; left: ${-ChiMuc * (window.innerWidth - 460)}px;`
+);
 for (let i = 0; i < tag.length; i++) {
   tag[i].onclick = function (e) {
-    changTag(i);
+    tag[ChiMuc].removeAttribute("style");
+    tag[i].setAttribute("style", `background-color: rgba(0, 60, 255, 0.5);`);
+    ChiMuc = i;
+    All.setAttribute(
+      "style",
+      `top: 0px; left: ${-i * (window.innerWidth - 460)}px;`
+    );
   };
 }
-function changTag(i) {
-  switch (i) {
-    case 2:
-      window.location.href = "./info.html";
-      break;
-    case 3:
-      window.location.href = "./info2.html";
-      break;
-    case 4:
-      window.location.href = "./info3.html";
-      break;
-    case 5:
-      window.location.href = "./info4.html";
-      break;
-    case 6:
-      window.location.href = "./info5.html";
-      break;
-    // case 7:
-    //   window.location.href = "./LogIn.html";
-    //   break;
-    default:
-      console.log("Loi!!");
-  }
-}
+let back = document.getElementById("back");
+back.onclick = function () {
+  window.location.href = "#";
+};
+tag[7].onclick = function () {
+  window.location.href = "#";
+};

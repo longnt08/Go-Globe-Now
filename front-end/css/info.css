@@ -3,6 +3,10 @@
 }
 body {
   margin: 0;
+  -webkit-user-select: none;
+}
+::-webkit-scrollbar {
+  width: 0;
 }
 .accounts {
   background-image: url("https://gonatour.vn/vnt_upload/news/08_2021/du_lich_da_lat.jpg");
@@ -70,6 +74,9 @@ body {
   margin: 10px 0;
   border-radius: 10px;
 }
+.myOption:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
 .myOption img {
   width: 40px;
   height: 40px;
@@ -80,7 +87,7 @@ body {
   padding-top: 15px;
 }
 .action {
-  overflow: auto;
+  overflow: hidden;
   margin-left: 50px;
   background-color: rgba(255, 255, 255, 0.3);
   border: 1px solid black;
@@ -165,4 +172,22 @@ td {
   margin-left: 10px;
   display: flex;
   flex-direction: column;
+}
+.All {
+  position: relative;
+  top: 0px;
+  width: 10000px;
+  height: 10000px;
+}
+.myCoin,
+.myCard,
+.myService,
+.myHistory,
+.myRefund,
+.Notification,
+.mySetting {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: auto;
 }
