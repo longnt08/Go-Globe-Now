@@ -40,7 +40,7 @@ def get_products():
     filtered_tours = [
         tour for tour in tours_cursor
         if (min_price <= tour['price'] <= max_price) and
-        (category is None or tour['category'] == category)
+        (category == "Tất cả" or tour['category'] == category)
     ]
 
     return jsonify(filtered_tours)
