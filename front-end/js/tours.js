@@ -28,6 +28,10 @@ function createTour(tour) {
     tourDiv.appendChild(name);
     tourDiv.appendChild(price);
 
+    tourDiv.addEventListener("click", () => {
+        window.location.href = `/tour_registration.html?tour_id=${tour._id}`;
+    });
+
     return tourDiv;
 }
 
