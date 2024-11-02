@@ -13,16 +13,16 @@
         <ul>
             <li><a href="index.html">Trang chủ</a></li>
             <li><a href="#about">Về chúng tôi</a></li>
-            <li><a href="#products">Sản phẩm</a></li>
+            <li><a href="#">Sản phẩm</a></li>
             <li><a href="#contact">Liên hệ</a></li>
         </ul>
     </nav>
 </header>
 
 <section class="intro">
-    <h1>Giới thiệu sản phẩm</h1>
+    <h1>Giới thiệu tours du lịch</h1>
     <p>Chúng tôi cung cấp các tour chất lượng cao và giá cả hợp lý.</p>
-    <button class="btn-animate" onclick="toggleSidebar()">Bộ lọc sản phẩm</button>
+    <button class="btn-animate" onclick="toggleSidebar()">Lọc tour</button>
 </section>
 
 <!-- tours -->
@@ -59,14 +59,17 @@
         <!-- category  -->
         <label for="category">Danh mục:</label>
         <select id="category">
-            <option value="Văn hóa">Văn hóa</option>
-            <option value="Nghỉ dưỡng">Nghỉ dưỡng</option>
-            <option value="Phiêu lưu">Phiêu lưu</option>
-            <option value="Biển">Biển</option>
-            <option value="Tất cả">Tất cả</option>
+            <option value="culture">Văn hóa</option>
+            <option value="resort">Nghỉ dưỡng</option>
+            <option value="venture">Phiêu lưu</option>
+            <option value="sea">Biển</option>
+            <option value="all">Tất cả</option>
         </select>
 
-        <button class="filter-btn" onclick="applyFilter()">Áp dụng</button>
+        <div class="btn-sidebar">
+            <button class="filter-btn" onclick="applyFilter()">Áp dụng</button>
+            <button class="filter-btn" onclick="showAllTours()">Bỏ lọc</button>
+        </div>
     </form>
 </div>
 

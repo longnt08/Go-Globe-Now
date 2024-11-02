@@ -12,7 +12,7 @@ function createTour(tour) {
 
     // Tạo thẻ img cho hình ảnh sản phẩm
     const img = document.createElement("img");
-    img.src = tour.image;
+    img.src = tour.img;
     img.alt = tour.name;
 
     // Tạo thẻ h3 cho tên sản phẩm
@@ -41,31 +41,31 @@ function renderTours(tours) {
 
 // show all tours
 function showAllTours() {
-    fetch('http://127.0.0.1:5000/api/tours')
+    fetch('http://127.0.0.1:5000/tours')
+        .then(response => response.json())
+        .then(tours => {
+            const tourList = document.getElementById('tourList');
+            tourList.innerHTML = ""; // Xóa danh sách tour hiện tại
+
+            // Hiển thị tất cả các tour
+            tours.forEach(tour => {
+                const tourDiv = createTour(tour);
+                tourList.appendChild(tourDiv);
+            });
+        })
+        .catch(error => console.error("Error fetching tours:", error));
+}
+
+// show filtered tours
+function showFilteredTours(minPrice = 0, maxPrice = Infinity, category = "all") {
+    fetch(`http://127.0.0.1:5000/tours/filter_tours?min_price=${minPrice}&max_price=${maxPrice}&category=${category}`)
     .then(response => response.json())
     .then(tours => {
         const tourList = document.getElementById('tourList');
         tourList.innerHTML = "";
 
         tours.forEach(tour => {
-            const tourDiv = document.createElement('div');
-            tourDiv.classList.add("tour");
-
-            // add tour name
-            const name = document.createElement("h3");
-            name.textContent = tour.name;
-            tourDiv.appendChild(name);
-
-            // add tour price
-            const price = document.createElement("p");
-            price.textContent = `Price: ${tour.price} VND`;
-            tourDiv.appendChild(price);
-
-            // add tour image
-            const image = document.createElement("img");
-            image.src = tour.image;
-            image.alt = tour.name;
-            tourDiv.appendChild(image);
+            const tourDiv = createTour(tour);
 
             // add tour to tourList
             tourList.appendChild(tourDiv);
@@ -80,13 +80,7 @@ function applyFilter() {
     const maxPrice = document.getElementById('max_price').value;
     const category = document.getElementById('category').value;
 
-    fetch(`http://127.0.0.1:5000/api/tours?min_price=${minPrice}&max_price=${maxPrice}&category=${category}`)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data); 
-        renderTours(data);
-    })
-    .catch(error => console.error("Error fetching tours: ", error));
+    showFilteredTours(minPrice, maxPrice, category);
 }
 
 // call showAllTours to display tour when load page
