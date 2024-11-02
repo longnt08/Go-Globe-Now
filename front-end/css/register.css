@@ -1,0 +1,271 @@
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF; /* Light gray background for a modern feel */
+  font-size: 16px;
+  color: #333; /* Dark gray for main text */
+  font-family: 'Verdana', sans-serif;
+  font-weight: 700;
+}
+
+#login-box {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  width: 600px;
+  height: 400px;
+  background: #FFFFFF; /*#FFFFFF; /* White background for contrast */
+  border-radius: 0px; /* Softer rounded corners */
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 30px;
+  padding-top: 35px;
+  width: 300px;
+  height: 400px;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  font-size: 25px;
+  color: #1F2937; /* Darker gray for headers */
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 8px;
+  width: 240px;
+  height: 36px;
+  border: 1px solid #CBD5E1; /* Light border for input fields */
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  transition: border 0.2s ease, color 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #38B2AC; /* Muted teal focus color */
+  color: #1F2937;
+}
+
+input[type="submit"] {
+  margin-top: 28px;
+  width: 130px;
+  height: 36px;
+  background: #38B2AC; /* Teal button color */
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background: #319795; /* Slightly darker teal on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow on hover */
+}
+
+.or {
+    font-size: 10px;
+  position: absolute;
+  top: 180px;
+  left: 280px;
+  width: 40px;
+  height: 40px;
+  background: #FFFFFF;/*#E2E8F0; /* Light gray for the OR circle */
+  color: #1F2937; /* Dark text color */
+  border-radius: 50%;
+  /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+  line-height: 40px;
+  text-align: center;
+}
+
+.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+  background: #FFFFFF;/*#EDF2F7; /* Light background for social section */
+  border-radius: 0 8px 8px 0;
+}
+
+.right .loginwith {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 25px;
+  color: #1F2937;
+  text-align: center;
+}
+
+button.social-signin {
+  margin-bottom: 20px;
+  width: 240px;
+  height: 40px; /* Increased height to fit logo */
+  border: none;
+  border-radius: 20px; /* More rounded corners */
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  display: flex; /* Use flexbox to layout logo and text */
+  align-items: center; /* Center vertically */
+  padding: 0 15px; /* Add padding on left and right */
+}
+
+button.social-signin img.social-logo {
+  width: 20px; /* Logo size */
+  height: 20px; /* Logo size */
+  margin-right: 10px; /* Space between logo and text */
+}
+
+button.social-signin span {
+  flex-grow: 1; /* Allow text to grow and take remaining space */
+  text-align: center; /* Center the text */
+  padding-right: 20px;
+}
+
+button.social-signin:hover,
+button.social-signin:focus {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button.social-signin.facebook {
+  background: #3B5998; /* Facebook blue */
+}
+
+button.social-signin.twitter {
+  background: #1DA1F2; /* Twitter blue */
+}
+
+button.social-signin.google {
+  background: #DB4437; /* Google red */
+}
+
+.signup-button {
+    width: 150px; /* Wider button */
+    height: 30px; /* Taller button */
+    background: #364bd2; /* Teal button color */
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-family: 'Verdana', sans-serif; /* Updated font */
+    font-weight: 500;
+    font-size: 12px; /* Larger text */
+    cursor: pointer;
+  }
+  
+  .signup-button:hover,
+  .signup-button:focus {
+    background: #2e0098; /* Slightly darker teal on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+  }
+  
+  input::placeholder {
+    font-size: 12px; /* Kích thước chữ nhỏ hơn */
+    color: #042f67; /* Màu sắc cho placeholder (có thể điều chỉnh theo ý bạn) */
+    font-family: 'Poppins', sans-serif; /* Đảm bảo sử dụng phông chữ nhất quán */
+}
+
+.right p {
+    font-size: 10px; /* Kích thước chữ cho các dòng chữ */
+    color: #555; /* Màu chữ nhạt hơn cho các dòng chữ */
+    margin-top: 10px; /* Khoảng cách giữa các dòng chữ */
+    text-align: center; /* Căn giữa văn bản */
+}
+
+.right a {
+    color: #364bd2; /* Màu chữ cho các liên kết */
+    text-decoration: none; /* Bỏ gạch chân */
+}
+
+.right a:hover {
+    text-decoration: underline; /* Gạch chân khi hover */
+}
+
+.terms-container {
+    margin: 10px 0; /* Khoảng cách phía trên và dưới */
+    display: flex; /* Sử dụng flexbox để căn giữa */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    font-size: 10px;
+}
+
+.terms-container in put[type="checkbox"] {
+    margin-right: 10px; /* Khoảng cách giữa checkbox và nhãn */
+}
+
+
+.container {
+  display: flex;
+  justify-content: flex-start; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  height: 100vh; /* Chiều cao toàn bộ cửa sổ */
+  padding-right: 15%;
+}
+
+.logo {
+  margin-left: 250px; /* Khoảng cách giữa logo và login box */
+  padding: 0;
+
+}
+
+.logo img {
+  width: 100%; /* Điều chỉnh để ảnh vừa với chiều rộng của div */
+  height: auto; /* Giữ tỉ lệ ảnh khi thay đổi chiều rộng */
+  max-width: 200px; /* Giới hạn kích thước tối đa của ảnh nếu cần */
+}
+
+.recaptcha-notice {
+  font-size: 7px; /* Kích thước nhỏ cho dòng chữ */
+  color: black; /* Màu xám nhẹ */
+  text-align: center; /* Căn giữa văn bản */
+  margin-top: 10px; /* Khoảng cách phía trên */
+  max-width: 200px; /* Đảm bảo không vượt quá chiều rộng của logo */
+}
+
+.recaptcha-notice a {
+  color: #364bd2; /* Màu xanh cho các liên kết */
+  text-decoration: none; /* Bỏ gạch chân */
+}
+
+.recaptcha-notice a:hover {
+  text-decoration: underline; /* Gạch chân khi hover */
+}
+
+.divider {
+  width: 1px;
+  height: 300px; /* Độ cao của đường kẻ */
+  background-color: black; /* Màu sắc của đường kẻ */
+  margin: 0 20px; /* Khoảng cách xung quanh đường kẻ */
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+  transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho đổ bóng */
+}
+
+.divider:hover {
+  box-shadow: 4px 0px 12px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+}
+
