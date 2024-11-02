@@ -12,6 +12,7 @@
     background-image: url('../img/5e11aca261ae40746983ac7efa1770d7.640x346x36.gif');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; 
   }
   
   .container {
@@ -20,9 +21,10 @@
     justify-content: space-between;
     height: 100vh;
     padding: 20px;
+    
   }
   
-  /* Improved header styles */
+  
   .header {
     display: flex;
     justify-content: space-between;
@@ -55,17 +57,19 @@
     font-size: 30px;
     cursor: pointer;
     color: #333;
+    position: relative;
   }
   .menu {
     display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    position: absolute;
+    top: 100px;
+    right: 0;
     background-color:black;
     color: #FFF;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
     
   }
   .close-btn {
@@ -111,7 +115,7 @@
     font-weight: 400;
     line-height: normal;
     text-transform: capitalize;
-    align-items: flex-start; /* Căn trái */
+    align-items: flex-start; 
     text-align: left;
 
   }
@@ -285,5 +289,64 @@
   .footer a:hover {
     text-decoration: underline;
   }
+  /* about-us part */
+  .about-page .about-us {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    
+  }
+  
+  .about-page .intro, .about-page .info {
+    flex: 1;
+    margin: 10px;
+  }
+  .about-page .intro{
+    padding-top: 100px;
+  }
+  
+  .about-page h1 {
+    font-size: 48px;
+    color: #FFF;
+    font-family: 'Lemon', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .about-page h2 {
+    font-size: 36px;
+    color: #FFF;
+    font-family: 'Lemon', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .about-page p {
+    font-family: 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Lemon', sans-serif;
+    font-style: normal;
+    color: #FFF;
+    margin-bottom: 20px
+  }
+  .about-page h1:hover, .about-page h2:hover {
+    color: #f33f3f; /* Đổi màu chữ khi hover */
+    text-shadow: 2px 2px 8px rgb(131, 7, 7); /* Thêm bóng cho chữ khi hover */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Hiệu ứng chuyển đổi mượt */
+  }
+  
+   
   
   
