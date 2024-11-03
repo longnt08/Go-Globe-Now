@@ -72,7 +72,8 @@ body {
   font-size: 30px;
   font-weight: 900;
 }
-.myInfo {
+.myInfo,
+.sumMoney {
   display: flex;
   margin-top: 20px;
   gap: 10px;
@@ -207,4 +208,61 @@ a {
   padding-top: 15px;
   border-radius: 10px;
   text-align: center;
+}
+.bill {
+  width: 600px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+.table {
+  height: 344.8px;
+  overflow-x: hidden;
+  border-radius: 10px;
+}
+.table::-webkit-scrollbar {
+  width: 5px;
+}
+.table::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+.table::-webkit-scrollbar-thumb {
+  background-color: gray;
+}
+table {
+  margin: 10px;
+  width: 580px;
+  padding: 0 10px;
+  table-layout: fixed;
+  text-align: center;
+  background-color: beige;
+  border-radius: 10px 10px 6px 6px;
+  border-collapse: collapse;
+}
+thead,
+tfoot {
+  background-color: #f1f1f1;
+}
+tbody {
+  display: table-row-group;
+  max-height: 204.8px;
+  overflow-y: auto;
+}
+tbody td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+th,
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+  white-space: normal;
+  overflow: hidden;
+}
+#discount {
+  width: 100%;
+  height: 35.2px;
 }
