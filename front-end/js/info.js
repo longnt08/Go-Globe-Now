@@ -1,8 +1,8 @@
 let accounts = document.querySelector(".accounts");
 let option = document.querySelector(".option");
 let action = document.querySelector(".action");
-const All = document.querySelector(".All");
-const Menu = Array.from(All.children);
+let All = document.querySelector(".All");
+let Menu = Array.from(All.children);
 accounts.setAttribute(
   "style",
   `width: ${window.innerWidth}px; height: ${window.innerHeight}px;`

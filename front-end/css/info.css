@@ -128,20 +128,20 @@ body {
 .myCoin_serviceName div {
   padding: 26px;
 }
-.myCard {
+.mybank {
   display: flex;
   margin: 10px;
   gap: 20px;
 }
-.myCard_name,
-.myCard_add {
+.mybank_name,
+.mybank_add {
   width: 400px;
   height: 270px;
   padding: 40px;
   border-radius: 20px;
   background-color: rgba(0, 0, 255, 0.6);
 }
-.myCard_add {
+.mybank_add {
   padding: 95px;
   text-align: center;
   font-size: 100px;
@@ -173,7 +173,7 @@ body {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.3);
 }
-.myService_CacDichVu img {
+.myService_DichVu img {
   width: 280px;
   height: 200px;
   margin: 10px;
@@ -185,8 +185,6 @@ body {
 }
 .myService_ThongTinDichVu {
   height: 105px;
-}
-.myService_ThongTinDichVu {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
@@ -220,6 +218,8 @@ body {
   margin: 20px auto;
   width: 98%;
   text-align: center;
+  background-color: beige;
+  border-radius: 10px 10px 0 0;
 }
 .action table th,
 td {
@@ -250,7 +250,7 @@ td {
   height: 10000px;
 }
 .myCoin,
-.myCard,
+.mybank,
 .myService,
 .myHistory,
 .myRefund,
@@ -289,15 +289,16 @@ label {
   display: grid;
   grid-template-columns: auto auto;
   margin: 5px 20px;
-  gap: 20px;
+  gap: 0 20px;
 }
+.infoSex_input,
+.infoBirthday_input,
 .infoName,
 .infoPhone,
 .infoEmail {
   display: flex;
   flex-direction: column;
 }
-.infoSex_input,
 .infoAddress_input {
   margin: 5px 20px;
 }

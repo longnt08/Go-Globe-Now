@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Information</title>
+    <link rel="stylesheet" href="./css/payment.css" />
+  </head>
+  <body>
+    <div class="payment">
+      <div class="All">
+        <div class="payment1">
+          <div class="stage">
+            <div
+              class="stage1"
+              style="border: 2px solid blue; padding-top: 3px"
+            >
+              1
+            </div>
+            <div class="stage0"></div>
+            <div class="stage1">2</div>
+            <div class="stage0"></div>
+            <div class="stage1">3</div>
+          </div>
+          <div class="myInfo">
+            <form>
+              <div class="myTieuDe">
+                <div class="myTenTieuDe">Thông tin cá nhân người đăng ký</div>
+              </div>
+              <div class="infoName_input">
+                <div class="infoName">
+                  <label for="firstName">Họ, tên đệm</label>
+                  <input
+                    class="text"
+                    type="text"
+                    id="firstName"
+                    value="Phạm Hoàng"
+                  />
+                </div>
+                <div class="infoName">
+                  <label for="lastName">Tên</label>
+                  <input class="text" type="text" id="lastName" value="Anh" />
+                </div>
+                <div class="infoSex_input">
+                  <label>Giới tính</label>
+                  <div class="text infoSex">
+                    <input type="radio" name="Sex" value="male" checked /><span
+                      >Nam</span
+                    >
+                    <input type="radio" name="Sex" value="female" /><span
+                      >Nữ</span
+                    >
+                  </div>
+                </div>
+                <div class="infoBirthday_input">
+                  <label for="birthday">Ngày sinh</label>
+                  <input class="text" type="date" id="birthday" />
+                </div>
+                <div class="infoPhone">
+                  <label for="phone">Số điện thoại</label>
+                  <input
+                    class="text"
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value="0123456789"
+                  />
+                </div>
+                <div class="infoEmail">
+                  <label for="email">Email</label>
+                  <input class="text" type="email" id="email" />
+                </div>
+              </div>
+              <div class="infoAddress_input">
+                <label for="address">Địa chỉ</label>
+                <input
+                  class="text"
+                  type="text"
+                  id="address"
+                  placeholder="Nhà số 1 ngõ 2/3 quận A Hà Nội"
+                />
+              </div>
+              <div class="infoName_input">
+                <div class="infoNumber">
+                  <label for="quantity">Số người tham gia</label>
+                  <input
+                    class="text"
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                  />
+                </div>
+                <div class="infoStart">
+                  <label for="startday">Ngày xuất phát</label>
+                  <input class="text" type="date" id="startday" />
+                </div>
+              </div>
+            </form>
+            <div class="myService_DichVu">
+              <img
+                src="https://carshop.vn/wp-content/uploads/2022/07/xe-vung-tau-bien-hoa-dong-nai-5.jpg"
+              />
+              <div class="myService_TenDichVu">
+                Xe thương gia (Hà Nội-Sài Gòn)
+              </div>
+              <div class="myService_ThongTinDichVu">
+                <span>- Số chỗ: 16 chỗ</span>
+                <span
+                  >- Đánh giá chung: Xe sạch sẽ, vui tính, thân thiện,...</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="tag">
+            <a href="#"><div class="tagNode">Quay lại</div></a>
+            <div class="tagNode tagNode12">Tiếp theo</div>
+          </div>
+        </div>
+        <div class="payment2">
+          <div class="stage">
+            <div class="stage1" style="background-color: blue">1</div>
+            <div class="stage0" style="background-color: blue"></div>
+            <div
+              class="stage1"
+              style="border: 2px solid blue; padding-top: 3px"
+            >
+              2
+            </div>
+            <div class="stage0"></div>
+            <div class="stage1">3</div>
+          </div>
+          <div class="sumMoney"></div>
+          <div class="tag">
+            <div class="tagNode tagNode21">Quay lại</div>
+            <div class="tagNode tagNode23">Thanh toán</div>
+          </div>
+        </div>
+        <div class="payment3">
+          <div class="stage">
+            <div class="stage1" style="background-color: blue">1</div>
+            <div class="stage0" style="background-color: blue"></div>
+            <div class="stage1" style="background-color: blue">2</div>
+            <div class="stage0" style="background-color: blue"></div>
+            <div
+              class="stage1"
+              style="border: 2px solid blue; padding-top: 3px"
+            >
+              3
+            </div>
+          </div>
+          <div class=""></div>
+          <div class="tag">
+            <div class="tagNode tagNode32">Quay lại</div>
+            <a href="#"><div class="tagNode">Hoàn tất</div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/payment.js"></script>
+  </body>
+</html>
