@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(tour => {
             document.getElementById("tourName").textContent = tour.name;
+            document.getElementById("tourImage").src = tour.img;
             document.getElementById("destination").textContent = tour.destination;
             document.getElementById("startDate").textContent = tour.start_date;
             document.getElementById("endDate").textContent = tour.end_date;

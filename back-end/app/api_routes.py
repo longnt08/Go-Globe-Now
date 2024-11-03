@@ -30,7 +30,7 @@ def get_all_tour():
 
 # filter tours
 @api_routes.route('/tours/filter_tours', methods=['GET'])
-def get_products():
+def filter_tours():
     tours_cursor = tours_collection.find()
 
     min_price = request.args.get('min_price', default=0, type=int)
@@ -38,24 +38,16 @@ def get_products():
     category = request.args.get('category', default="all", type=str)
 
     # filter tours
-    # filtered_tours = [
-    #     {
-    #         **tour, 
-    #         "id": str(tour["_id"])
-    #     }
-    #     for tour in tours_cursor
-    #     if (min_price <= tour['price'] <= max_price) and
-    #        (category == "all" or tour['category'] == category)
-    # ]
     filtered_tours = [
-        tour for tour in tours_cursor
+        {
+            **tour, 
+            "id": str(tour["_id"])
+        }
+        for tour in tours_cursor
         if (min_price <= tour['price'] <= max_price) and
            (category == "all" or tour['category'] == category)
     ]
 
-    # Chuyển ObjectId sang chuỗi
-    for tour in filtered_tours:
-        tour["_id"] = str(tour["_id"])
 
     return jsonify(filtered_tours)
 
@@ -83,6 +75,8 @@ def register_tour():
         "paymentMethod": data["paymentMethod"],
         "numPeople": int(data["numPeople"])
     }
+
     # save data to mongoDB
     registration_tours.insert_one(registration)
+
     return jsonify({"message": "Tour registered successfully"})
