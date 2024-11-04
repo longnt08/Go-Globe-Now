@@ -72,7 +72,9 @@ function applyFilter() {
   const maxPrice = document.getElementById("max_price").value;
   const category = document.getElementById("category").value;
 
+ 
   showFilteredTours(minPrice, maxPrice, category);
+  window.location.hash = `#min_price=${minPrice}&max_price=${maxPrice}&category=${category}`;
 }
 
 // show filtered tours
