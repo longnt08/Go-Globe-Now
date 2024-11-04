@@ -1,0 +1,348 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  -webkit-user-select: none;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+.accounts {
+  background-image: url("https://gonatour.vn/vnt_upload/news/08_2021/du_lich_da_lat.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+}
+.accounts_1 {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.accounts_1 img {
+  height: 100%;
+  padding: 10px;
+}
+.accounts_2 {
+  width: 100%;
+  padding: 50px 50px 0 50px;
+  display: flex;
+  flex-direction: row;
+}
+.option_info {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+.avartar {
+  width: 50px;
+  height: 50px;
+  background-color: gray;
+  text-align: center;
+  margin-right: 20px;
+  padding: 15px;
+  border-radius: 50%;
+}
+.myOption_name {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  font-size: 20px;
+}
+.option_point,
+.option_payment {
+  border-bottom: 1px solid black;
+}
+.option {
+  width: 310px;
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  border: 1px solid black;
+  padding: 20px;
+}
+.myOption {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+.myOption:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.myOption img {
+  width: 40px;
+  height: 40px;
+  filter: hue-rotate(180deg) grayscale(100%) brightness(0) contrast(100%);
+}
+.myOption_span {
+  margin-left: 10px;
+  padding-top: 15px;
+}
+.action {
+  overflow: hidden;
+  margin-left: 50px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.myCoin_synthetic {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  margin: 10px 10px 0 10px;
+  padding: 10px 10px 20px 10px;
+  border-bottom: 1px solid beige;
+}
+.myCoin_system,
+.myCoin_personal {
+  padding: 0 20px;
+  border-radius: 10px;
+  background-color: rgb(150, 150, 255);
+}
+.myCoin_service {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  margin: 20px;
+}
+.myCoin_serviceName {
+  height: 70px;
+  display: flex;
+  border-radius: 10px;
+  font-size: 18px;
+  background-color: rgb(100, 100, 255);
+}
+.myCoin_serviceName img {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+}
+.myCoin_serviceName div {
+  padding: 26px;
+}
+.mybank {
+  display: flex;
+  margin: 10px;
+  gap: 20px;
+}
+.mybank_name,
+.mybank_add {
+  width: 400px;
+  height: 270px;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 255, 0.6);
+}
+.mybank_add {
+  padding: 95px;
+  text-align: center;
+  font-size: 100px;
+}
+.myService_TieuDe,
+.announcement_TieuDe,
+.mySetting_TieuDe {
+  margin: 10px;
+  border-bottom: 1px solid beige;
+}
+.myService_TenTieuDe,
+.announcement_TenTieuDe,
+.mySetting_TenTieuDe {
+  margin-left: 10px;
+  font-size: 30px;
+  font-weight: 900;
+}
+.myService_CacDichVu {
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px;
+  overflow: auto;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.myService_DichVu {
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.myService_DichVu img {
+  width: 280px;
+  height: 200px;
+  margin: 10px;
+}
+.myService_TenDichVu {
+  height: 25px;
+  font-size: 20px;
+  margin-left: 10px;
+}
+.myService_ThongTinDichVu {
+  height: 105px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  overflow: auto;
+}
+.myService_TuongTac {
+  height: 30px;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  gap: 10px;
+}
+.myService_Delete,
+.myService_info {
+  padding: 7px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: rgb(150, 150, 255);
+}
+.myService_Huy {
+  height: 30px;
+  margin: 10px;
+  padding: 7px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: rgb(150, 150, 255);
+}
+.action table {
+  margin: 20px auto;
+  width: 98%;
+  text-align: center;
+  background-color: beige;
+  border-radius: 10px 10px 0 0;
+}
+.action table th,
+td {
+  height: 30px;
+  border-bottom: 1px solid black;
+}
+.announcement_ThongBao {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+}
+.announcement_ThongBao img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.announcement_ThongBao_info {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.All {
+  position: relative;
+  top: 0px;
+  width: 10000px;
+  height: 10000px;
+}
+.myCoin,
+.mybank,
+.myService,
+.myHistory,
+.myRefund,
+.Notification,
+.mySetting {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: auto;
+}
+form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.text {
+  width: 100%;
+  height: 40px;
+  padding: 10px 0 0 10px;
+  border-radius: 10px;
+  border: 3px solid white;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+label {
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  width: 150px;
+  padding: 0 auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: white;
+}
+.infoName_input,
+.infoContact_input {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 5px 20px;
+  gap: 0 20px;
+}
+.infoSex_input,
+.infoBirthday_input,
+.infoName,
+.infoPhone,
+.infoEmail {
+  display: flex;
+  flex-direction: column;
+}
+.infoAddress_input {
+  margin: 5px 20px;
+}
+.infoSex {
+  display: grid;
+  grid-template-columns: 20px auto 20px auto;
+  padding-bottom: 15.4px;
+}
+button {
+  margin: 10px 0 0 20px;
+  width: 200px;
+  height: 40px;
+  border: 3px solid black;
+  border-radius: 10px;
+  background-color: rgb(50, 150, 255);
+}
+.infoAccount {
+  max-width: 400px;
+  height: 40px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  background-color: rgb(50, 150, 255);
+  border: 3px solid black;
+  display: grid;
+  grid-template-columns: 1fr 40px;
+}
+.infoAccount_acc {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.infoAccount_delete {
+  background-color: rgba(50, 150, 255);
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 2px;
+  margin: 5px;
+}
+.infoAccount_add {
+  padding-top: 10px;
+  margin: 10px 0 20px 30px;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgba(50, 150, 255, 0.8);
+}

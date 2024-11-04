@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours du lịch</title>
+    <link rel="stylesheet" href="./css/tours.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="#about">Về chúng tôi</a></li>
+            <li><a href="#">Sản phẩm</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="intro">
+    <h1>Giới thiệu tours du lịch</h1>
+    <p>Chúng tôi cung cấp các tour chất lượng cao và giá cả hợp lý.</p>
+    <button class="btn-animate" onclick="toggleSidebar()">Lọc tour</button>
+</section>
+
+<!-- tours -->
+<section class="tour-list" id="tourList"></section>
+
+
+<!-- Sidebar cho chức năng lọc sản phẩm -->
+<div id="sidebar" class="sidebar">
+    <h2>Bộ lọc Tour</h2>
+    <button onclick="toggleSidebar()" class="close-btn">&times;</button>
+    <form>
+        <!-- min price  -->
+        <label for="min_price">Giá từ:</label>
+        <select id="min_price">
+            <option value="500000">500k</option>
+            <option value="1000000">1 Triệu</option>
+            <option value="2000000">2 Triệu</option>
+            <option value="3000000">3 Triệu</option>
+        </select>
+        <!-- max price  -->
+        <label for="max_price">Đến:</label>
+        <select id="max_price">
+            <option value="1000000">1 Triệu</option>
+            <option value="2000000">2 Triệu</option>
+            <option value="3000000">3 Triệu</option>
+            <option value="4000000">4 Triệu</option>
+            <option value="5000000">5 Triệu</option>
+            <option value="6000000">6 Triệu</option>
+            <option value="7000000">7 Triệu</option>
+            <option value="8000000">8 Triệu</option>
+            <option value="9000000">9 Triệu</option>
+            <option value="10000000">10 Triệu</option>
+        </select>
+        <!-- category  -->
+        <label for="category">Danh mục:</label>
+        <select id="category">
+            <option value="culture">Văn hóa</option>
+            <option value="resort">Nghỉ dưỡng</option>
+            <option value="venture">Phiêu lưu</option>
+            <option value="sea">Biển</option>
+            <option value="all">Tất cả</option>
+        </select>
+
+        <div class="btn-sidebar">
+            <button class="filter-btn" onclick="applyFilter()">Áp dụng</button>
+            <button class="filter-btn" onclick="showAllTours()">Bỏ lọc</button>
+        </div>
+    </form>
+</div>
+
+<script src="./js/tours.js"></script>
+</body>
+</html>
