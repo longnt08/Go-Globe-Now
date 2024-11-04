@@ -16,6 +16,8 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 /* Tiêu đề */
@@ -26,12 +28,14 @@ h1 {
 }
 
 /* Phần thông tin tour */
-.tour-info {
+#tourInfo {
     margin-bottom: 30px;
     padding: 20px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     background-color: #f9f9f9;
+    display: block;
+    justify-self: center;
 }
 
 .tour-info h2 {

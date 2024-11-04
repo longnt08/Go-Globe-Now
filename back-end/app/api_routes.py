@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, session
 from pymongo import MongoClient
 from bson import ObjectId
 
@@ -41,7 +41,7 @@ def filter_tours():
     filtered_tours = [
         {
             **tour, 
-            "id": str(tour["_id"])
+            "_id": str(tour["_id"])
         }
         for tour in tours_cursor
         if (min_price <= tour['price'] <= max_price) and

@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
             alert("Registration successful");
-            window.location.href = "../tours.html";
+            window.location.href = "http://127.0.0.1:5500/front-end/tours.html";
         })
         .catch(error => console.error("Error registering tour:", error));
     });

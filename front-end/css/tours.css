@@ -95,21 +95,44 @@ header {
 
 .tour img {
     max-width: 100%;
-    height: 65%;
+    height: 60%;
     margin-top: 10px;
     border-radius: 8px;
     margin-bottom: 15px;
+    padding: 0px;
 }
 
 .tour h3 {
     font-size: 1.2em;
     color: #333;
     margin: 10px 0;
+    height: 15%;
+    padding: 0px;
 }
 
 .tour p {
     font-size: 1em;
     color: #ff1493;
+    margin-bottom: 5px;
+}
+
+.tour .save-btn {
+    background-color: rgb(186, 186, 218);
+    margin: 5px 0px 0px 5px;
+    width: 35%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.tour .register-btn {
+    background-color: rgb(186, 186, 218);
+    margin: 5px 5px 0px 0px;
+    width: 35%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.tour .register-btn:hover, .tour .save-btn:hover {
+    background-color: antiquewhite;
 }
 
 /* Hover Effect for Product */
