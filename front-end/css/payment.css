@@ -48,11 +48,28 @@ body {
   left: 4000px;
 }
 .stage {
-  width: 790px;
+  width: 690px;
+  height: 30px;
+  margin: 20px auto;
+  position: relative;
+}
+.stageNumber1,
+.stageNumber2 {
+  width: 690px;
   margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+}
+.myStage2 {
+  width: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: width 0.5s linear;
+}
+.myStage2.toPayment2 {
+  width: 360px;
 }
 .stage1 {
   width: 30px;
@@ -70,7 +87,8 @@ body {
   background-color: gray;
 }
 .myTieuDe {
-  margin: 10px;
+  margin: 0 10px 10px 10px;
+  padding-top: 10px;
   border-bottom: 1px solid beige;
 }
 .myTenTieuDe {
@@ -84,6 +102,17 @@ body {
   margin-top: 20px;
   gap: 10px;
   justify-content: center;
+}
+.myTable {
+  width: 600px;
+  transition: width 0.5s linear;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.myTable.hidden {
+  width: 0;
 }
 form {
   width: 600px;
@@ -215,9 +244,21 @@ a {
   text-align: center;
 }
 .bill {
+  height: 400px;
   width: 600px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
+}
+.myBill {
+  width: 0px;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  transition: width 0.5s linear;
+}
+.myBill.hidden {
+  width: 600px;
 }
 .table {
   height: 344.8px;

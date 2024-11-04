@@ -5,6 +5,9 @@ let tagNode12 = document.querySelector(".tagNode12");
 let tagNode21 = document.querySelector(".tagNode21");
 let tagNode23 = document.querySelector(".tagNode23");
 let tagNode32 = document.querySelector(".tagNode32");
+let myTable = document.querySelector(".myTable");
+let myBill = document.querySelector(".myBill");
+let myStage2 = document.querySelector(".myStage2");
 Menu.push(payment);
 for (let i = 0; i < Menu.length; i++) {
   Menu[i].setAttribute(
@@ -23,7 +26,10 @@ window.addEventListener("resize", function () {
   All.setAttribute("style", `height: ${window.innerHeight}px`);
 });
 tagNode12.onclick = function () {
-  All.setAttribute("style", `left: -2000px`);
+  // All.setAttribute("style", `left: -2000px`);
+  myTable.classList.toggle("hidden");
+  myBill.classList.toggle("hidden");
+  myStage2.classList.toggle("toPayment2");
 };
 tagNode21.onclick = function () {
   All.setAttribute("style", `left: 0px`);
