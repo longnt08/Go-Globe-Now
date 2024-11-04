@@ -5,11 +5,6 @@ body {
   margin: 0;
   -webkit-user-select: none;
 }
-.All {
-  width: 6000px;
-  position: relative;
-  top: 0;
-}
 .payment {
   background-image: url("https://images2.thanhnien.vn/Uploaded/ngocthanh/2022_10_09/check-in-9148.jpg");
   background-repeat: no-repeat;
@@ -54,7 +49,8 @@ body {
   position: relative;
 }
 .stageNumber1,
-.stageNumber2 {
+.stageNumber2,
+.stageNumber3 {
   width: 690px;
   margin: auto;
   display: flex;
@@ -69,6 +65,17 @@ body {
   transition: width 0.5s linear;
 }
 .myStage2.toPayment2 {
+  width: 360px;
+}
+.myStage3 {
+  width: 0px;
+  position: absolute;
+  top: 0;
+  left: 330px;
+  overflow: hidden;
+  transition: width 0.5s linear;
+}
+.myStage3.toPayment3 {
   width: 360px;
 }
 .stage1 {
@@ -96,12 +103,18 @@ body {
   font-size: 30px;
   font-weight: 900;
 }
-.myInfo,
-.sumMoney {
+.myInfo {
   display: flex;
   margin-top: 20px;
   gap: 10px;
   justify-content: center;
+  transition: opacity 0.5s linear;
+}
+.myInfo.opacity {
+  opacity: 0;
+}
+.myInfo.None {
+  display: none;
 }
 .myTable {
   width: 600px;
@@ -223,12 +236,54 @@ button {
   height: 200px;
   margin: 10px;
 }
-.tag {
+.myTag {
+  width: 900px;
+  height: 50px;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+}
+.tag1 {
   width: 900px;
   height: 50px;
   display: flex;
   justify-content: space-between;
   margin: auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.tag1.toPayment2 {
+  width: 0px;
+}
+.tag2 {
+  width: 0px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.tag2.toPayment2 {
+  width: 900px;
+}
+.tag3 {
+  width: 0px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.tag3.toPayment3 {
+  width: 900px;
 }
 a {
   text-decoration: none;
@@ -315,11 +370,21 @@ td {
   height: 35.2px;
 }
 .card {
-  display: grid;
-  grid-template-columns: 300px 300px 300px;
   height: 400px;
+  display: none;
+  grid-template-columns: 300px 300px 300px;
+  margin-top: 20px;
   gap: 20px;
+  opacity: 0;
+  overflow-x: hidden;
   justify-content: center;
+  transition: opacity 0.5s linear;
+}
+.card.opacity {
+  opacity: 1;
+}
+.card.None {
+  display: grid;
 }
 .myCard {
   width: 300px;
