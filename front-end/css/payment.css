@@ -12,6 +12,9 @@ body {
 }
 .payment {
   background-image: url("https://images2.thanhnien.vn/Uploaded/ngocthanh/2022_10_09/check-in-9148.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center top;
   overflow: hidden;
 }
 .payment1 {
@@ -19,6 +22,7 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
   left: 0;
@@ -28,6 +32,7 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
   left: 2000px;
@@ -37,16 +42,34 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
   left: 4000px;
 }
 .stage {
-  width: 790px;
+  width: 690px;
+  height: 30px;
+  margin: 20px auto;
+  position: relative;
+}
+.stageNumber1,
+.stageNumber2 {
+  width: 690px;
   margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+}
+.myStage2 {
+  width: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: width 0.5s linear;
+}
+.myStage2.toPayment2 {
+  width: 360px;
 }
 .stage1 {
   width: 30px;
@@ -64,7 +87,8 @@ body {
   background-color: gray;
 }
 .myTieuDe {
-  margin: 10px;
+  margin: 0 10px 10px 10px;
+  padding-top: 10px;
   border-bottom: 1px solid beige;
 }
 .myTenTieuDe {
@@ -77,8 +101,18 @@ body {
   display: flex;
   margin-top: 20px;
   gap: 10px;
-  display: flex;
   justify-content: center;
+}
+.myTable {
+  width: 600px;
+  transition: width 0.5s linear;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.myTable.hidden {
+  width: 0;
 }
 form {
   width: 600px;
@@ -210,9 +244,21 @@ a {
   text-align: center;
 }
 .bill {
+  height: 400px;
   width: 600px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
+}
+.myBill {
+  width: 0px;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  transition: width 0.5s linear;
+}
+.myBill.hidden {
+  width: 600px;
 }
 .table {
   height: 344.8px;
@@ -223,13 +269,15 @@ a {
   width: 5px;
 }
 .table::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-}
-.table::-webkit-scrollbar-thumb {
+  margin: 10px 0 20px 0;
   background-color: gray;
 }
+.table::-webkit-scrollbar-thumb {
+  background-color: #f1f1f1;
+  border-radius: 50%;
+}
 table {
-  margin: 10px;
+  margin: 0 10px 10px 10px;
   width: 580px;
   padding: 0 10px;
   table-layout: fixed;
@@ -265,4 +313,41 @@ td {
 #discount {
   width: 100%;
   height: 35.2px;
+}
+.card {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  height: 400px;
+  gap: 20px;
+  justify-content: center;
+}
+.myCard {
+  width: 300px;
+  height: 150px;
+  margin: 0 auto;
+  background-color: powderblue;
+  border-radius: 10px;
+  padding: 20px;
+}
+.myCard_QR {
+  width: 300px;
+  height: 150px;
+  margin: 0 auto;
+  background-color: powderblue;
+  border-radius: 10px;
+  padding: 20px;
+  padding: 10px;
+  text-align: center;
+}
+.myCard_QR img {
+  width: 130px;
+  height: 130px;
+}
+.myCard_tyle {
+  font-size: 25px;
+  font-weight: 900;
+}
+.myCard_Name,
+.myCard_id {
+  margin: 10px 0 0 20px;
 }
