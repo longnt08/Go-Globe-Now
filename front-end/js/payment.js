@@ -32,15 +32,15 @@ window.addEventListener("resize", function () {
   All.setAttribute("style", `height: ${window.innerHeight}px`);
 });
 tagNode12.onclick = function () {
-  myTable.classList.toggle("hidden");
-  myBill.classList.toggle("hidden");
+  myTable.classList.toggle("toPayment2");
+  myBill.classList.toggle("toPayment2");
   myStage2.classList.toggle("toPayment2");
   tag1.classList.toggle("toPayment2");
   tag2.classList.toggle("toPayment2");
 };
 tagNode21.onclick = function () {
-  myTable.classList.toggle("hidden");
-  myBill.classList.toggle("hidden");
+  myTable.classList.toggle("toPayment2");
+  myBill.classList.toggle("toPayment2");
   myStage2.classList.toggle("toPayment2");
   tag1.classList.toggle("toPayment2");
   tag2.classList.toggle("toPayment2");

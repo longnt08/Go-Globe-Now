@@ -17,30 +17,10 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 0;
   left: 0;
-}
-.payment2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 0;
-  left: 2000px;
-}
-.payment3 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 0;
-  left: 4000px;
 }
 .stage {
   width: 690px;
@@ -123,7 +103,7 @@ body {
   top: 0;
   left: 0;
 }
-.myTable.hidden {
+.myTable.toPayment2 {
   width: 0;
 }
 form {
@@ -311,7 +291,7 @@ a {
   justify-content: flex-end;
   transition: width 0.5s linear;
 }
-.myBill.hidden {
+.myBill.toPayment2 {
   width: 600px;
 }
 .table {
