@@ -48,7 +48,6 @@ def filter_tours():
            (category == "all" or tour['category'] == category)
     ]
 
-
     return jsonify(filtered_tours)
 
 # get tour details
