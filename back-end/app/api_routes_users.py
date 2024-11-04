@@ -12,11 +12,16 @@ users_collection = db.users  # Chọn collection 'users'
 
 @users_api.route('/', methods=['GET'])
 def get_users():
-    # Lấy tất cả người dùng từ collection 'users'
+    print("Route /api/users được gọi")  # Debug
     users = list(users_collection.find({}))
     for user in users:
         user['_id'] = str(user['_id'])  # Chuyển đổi ObjectId thành chuỗi
+        for key, value in user.items():
+            if isinstance(value, bytes):
+                user[key] = value.decode('utf-8')
+    print(f"Users: {users}")  # Debug
     return jsonify(users), 200
+
 
 @users_api.route('/<user_id>', methods=['PUT'])
 def update_user(user_id):
