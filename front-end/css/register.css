@@ -34,13 +34,14 @@ body {
   left: 0;
   box-sizing: border-box;
   padding: 30px;
-  padding-top: 35px;
+  padding-top: 28px;
   width: 300px;
   height: 400px;
 }
 
 h1 {
-  margin: 0 0 20px 0;
+  padding: 0px;
+  margin: 0 0 10px 0;
   font-weight: 700;
   font-size: 25px;
   color: #1F2937; /* Darker gray for headers */
@@ -50,7 +51,8 @@ input[type="text"],
 input[type="password"] {
   display: block;
   box-sizing: border-box;
-  margin-bottom: 20px;
+  margin-top: 3px;
+  margin-bottom: 18px;
   padding: 8px;
   width: 240px;
   height: 36px;
@@ -279,3 +281,17 @@ button.social-signin.google {
   box-shadow: 4px 0px 12px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
 }
 
+.flex-container {
+  display: flex; /* Sử dụng flexbox để căn chỉnh */
+  justify-content: space-between; /* Căn giữa khoảng cách giữa hai trường */
+  margin-bottom: -7px; /* Khoảng cách dưới cùng */
+}
+
+.flex-container input[type="text"] {
+  width: 48%; /* Chiều rộng của mỗi trường */
+  height: 36px; /* Chiều cao như các trường khác */
+}
+
+input[type="password"]:nth-of-type(2) {
+  margin-bottom: 0px; /* Giảm khoảng cách dưới cùng */
+}
