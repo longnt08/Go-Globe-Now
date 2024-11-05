@@ -47,82 +47,85 @@
               </div>
             </div>
           </div>
+
           <div class="myInfo">
             <div class="myTable">
-              <form>
+              <form id="registrationForm">
+
                 <div class="myTieuDe">
                   <div class="myTenTieuDe">Thông tin cá nhân người đăng ký</div>
                 </div>
+
                 <div class="infoName_input">
                   <div class="infoName">
                     <label for="firstName">Họ, tên đệm</label>
-                    <input
-                      class="text"
-                      type="text"
-                      id="firstName"
-                      required/>
+                    <input class="text" type="text" id="firstName" required/>
                   </div>
+
                   <div class="infoName">
                     <label for="lastName">Tên</label>
                     <input class="text" type="text" id="lastName" required />
                   </div>
+
                   <div class="infoSex_input">
                     <label for="gender">Giới tính</label>
                     <div class="text infoSex">
-                      <input type="radio" name="gender" value="male" checked/><span>Nam</span>
-                      <input type="radio" name="gender" value="female" checked /><span>Nữ</span>
+                      <input type="radio" name="gender" value="Nam" id="gender" checked/><span>Nam</span>
+                      <input type="radio" name="gender" value="Nữ" id="gender" checked /><span>Nữ</span>
                     </div>
                   </div>
+
                   <div class="infoBirthday_input">
                     <label for="birthday">Ngày sinh</label>
                     <input class="text" type="date" id="birthday" required/>
                   </div>
+
                   <div class="infoPhone">
                     <label for="phone">Số điện thoại</label>
-                    <input
-                      class="text"
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required/>
+                    <input class="text" type="tel" id="phone" name="phone" required/>
                   </div>
+
                   <div class="infoEmail">
                     <label for="email">Email</label>
                     <input class="text" type="email" id="email" required/>
                   </div>
-                </div>
-                <div class="infoAddress_input">
-                  <label for="address">Địa chỉ</label>
-                  <input
-                    class="text"
-                    type="text"
-                    id="address"
-                    required/>
-                </div>
-                <div class="infoName_input">
+
+                  <div class="infoCCCD">
+                    <label for="CCCD">CCCD</label>
+                    <input class="text" type="text" id="cccd" required/>
+                  </div>
+
+                  <div class="infoAddress_input">
+                    <label for="address">Địa chỉ</label>
+                    <input class="text" type="text" id="address" required/>
+                  </div>
+
                   <div class="infoNumber">
                     <label for="numPeople">Số người tham gia</label>
-                    <input
-                      class="text"
-                      type="number"
-                      id="numPeople"
-                      min="1"
-                    />
+                    <input class="text" type="number" id="numPeople" min="1"/>
                   </div>
+
                   <div class="infoStart">
                     <label for="startday">Ngày xuất phát</label>
-                    <input class="text" type="date" id="startday" />
+                    <select class="text" id="startDay"/></select>
                   </div>
+
                 </div>
+
               </form>
             </div>
+            
+            <!-- Thong tin tour -->
             <div id="tourInfo">
               <h2 id="tourName" style="font-size: 20px; padding-left: 10px;"></h2>
+              <h3>Giá: <span id="price"></span> VND</h3>
               <img  alt="tourImage" id="tourImage">
-              <p>Điểm đến: <span id="destination"></span></p>
-              <p>Số lượng người tối đa: <span id="maxPeople"></span></p>
-              <p>Giá: <span id="price"></span> VND</p>
+              <ul>
+                <p>Điểm đến: <span id="destination"></span></p>
+                <p>Số lượng người tối đa: <span id="maxPeople"></span></p> 
+              </ul>
             </div>
+
             <div class="myBill">
               <div class="bill">
                 <div class="myTieuDe">
@@ -243,6 +246,7 @@
                 </div>
               </div>
             </div>
+
           </div>
           <div class="card">
             <div class="myCard">
@@ -255,24 +259,28 @@
               <div class="myCard_id">058****435</div>
             </div>
             <div class="myCard_QR">
-              <img
-                src="https://img.freepik.com/premium-vector/qr-code-isolated-transparent-background_389832-976.jpg?w=1380"
-              />
+              <img src="https://img.freepik.com/premium-vector/qr-code-isolated-transparent-background_389832-976.jpg?w=1380"/>
             </div>
           </div>
           <div class="myTag">
+
             <div class="tag1">
               <a href="#"><div class="tagNode">Quay lại</div></a>
               <div class="tagNode tagNode12">Tiếp theo</div>
             </div>
+
             <div class="tag2">
               <div class="tagNode tagNode21">Quay lại</div>
               <div class="tagNode tagNode23">Thanh toán</div>
             </div>
+
             <div class="tag3">
               <div class="tagNode tagNode32">Quay lại</div>
-              <a href="#"><div class="tagNode">Hoàn tất</div></a>
+              <a href="#">
+                <div class="tagNode" onclick="register_tour()">Hoàn tất</div>
+              </a>
             </div>
+
           </div>
         </div>
       </div>

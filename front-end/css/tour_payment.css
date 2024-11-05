@@ -162,13 +162,12 @@ label {
 .infoPhone,
 .infoEmail,
 .infoNumber,
-.infoStart {
+.infoStart,
+.infoAddress_input {
   display: flex;
   flex-direction: column;
 }
-.infoAddress_input {
-  margin: 5px 20px;
-}
+
 .infoSex {
   display: grid;
   grid-template-columns: 20px auto 20px auto;
@@ -220,20 +219,31 @@ button {
   background-color: rgba(255, 255, 255, 0.3);
   text-align: center;
 }
+#tourInfo h2 {
+  padding: 0px;
+}
+#tourInfo h3 {
+  padding: 0;
+  margin: 0;
+}
 #tourInfo img {
+  padding: 0;
+  width: 280px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+}
+#tourInfo {
   padding: 0;
 }
 #tourInfo p {
   padding-left: 10px;
+  margin: 0 0 5px 0;
   float: left;
   font-size: 16px;
+  font-weight: bold;
 }
 
-#tourInfo img {
-  width: 280px;
-  height: 200px;
-  margin: 10px;
-}
 .myTag {
   width: 900px;
   height: 50px;
@@ -295,6 +305,7 @@ a {
   padding-top: 15px;
   border-radius: 10px;
   text-align: center;
+  cursor: pointer;
 }
 .bill {
   height: 400px;

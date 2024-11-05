@@ -64,15 +64,18 @@ def get_tour_details(tour_id):
 @api_routes.route('/tours/register_tour', methods=["POST"])
 def register_tour():
     data = request.json
+
     registration = {
         "tour_id": ObjectId(data["tour_id"]),
         "name": data["name"],
+        "gender": data['gender'],
+        "birthday": data['birthday'],
         "phone": data["phone"],
-        "address": data["address"],
-        "cccd": data["cccd"],
         "email": data["email"],
-        "paymentMethod": data["paymentMethod"],
-        "numPeople": int(data["numPeople"])
+        "cccd": data["cccd"],
+        "address": data["address"],
+        "numPeople": int(data["numPeople"]),
+        "startDay": data['startDay']
     }
 
     # save data to mongoDB
