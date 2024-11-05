@@ -28,11 +28,15 @@ document.querySelector('.signup-button').addEventListener('click', function (e) 
         },
         body: JSON.stringify(userData)
     })
-    .then(response => response.json())
-    .then(data => {
+    .then(response => response.json().then(data => ({status: response.status, data})))
+    .then(({status, data}) => {
         console.log(data); // Kiểm tra phản hồi từ server
-        if (data.message) {
+        if (data.login_url) {
             alert(data.message); // Hiển thị thông báo cho người dùng
+            window.location.href = data.login_url; // Fetch login_url from the data / the response return message of the function.
+        }
+        else {
+            alert(data.message)
         }
     })
     .catch(error => {

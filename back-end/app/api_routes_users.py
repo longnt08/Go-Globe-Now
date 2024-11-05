@@ -77,12 +77,23 @@ def register():
 
         # Inserting into MongoDB
         result = users_collection.insert_one(user_data)
-        return jsonify({"message": "User registered successfully", "user_id": str(result.inserted_id)}), 201
+        return jsonify({"message": "User registered successfully",
+                        "user_id": str(result.inserted_id),
+                        "login_url": "http://127.0.0.1:3000/front-end/login.html"}), 201
+
+        # This "return jsonify()" is the final result (namely data) after successfully
+        # executing the register() function.
+
+        # Inside which there is a "login_url" json key that JavaScript could fetch the value from.
+
+        # The URL to the login.html must be like shown (copied straight from the browser
+        # where VS Code is showing the preview, and it's on another port, different from
+        # the server port)
 
     except Exception as e:
         return jsonify({"message": str(e)}), 500
 
-@api_routes.route('/users/login', methods = ['POST'])
+@api_routes.route('/users/login', methods = ['GET', 'POST'])
 def login():
     try:
         credentials = request.get_json()
