@@ -1,12 +1,25 @@
-fetch('/user') // đường dẫn API của bạn
-    .then(response => response.json()) // chuyển đổi phản hồi thành JSON
-    .then(data => {
-        // Sử dụng dữ liệu JSON trong JavaScript
-        console.log(data); // Kiểm tra dữ liệu lấy được trong console
-        const username = data.username; // Lấy thông tin từ JSON, ví dụ là "username"
-        const email = data.email; // Lấy email, nếu JSON có trường email
-        // Hiển thị dữ liệu hoặc sử dụng trong HTML
-        document.getElementById("username").textContent = username;
-        document.getElementById("email").textContent = email;
-    })
-    .catch(error => console.error('Error:', error));
+var postApi = "http://127.0.0.1:5000/users";
+fetch(postApi)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (posts) {
+    console.log(posts);
+    document.getElementById("firstName").value = posts.first_name
+      ? posts.first_name
+      : "";
+    document.getElementById("lastName").value = posts.last_name
+      ? posts.last_name
+      : "";
+    if (posts.gender) {
+      document.querySelector(
+        `input[name="Sex"][value="${posts.gender}"]`
+      ).checked = true;
+    }
+    document.getElementById("birthday").value = posts.dob ? posts.dob : "";
+    document.getElementById("phone").value = posts.phone ? posts.phone : "";
+    document.getElementById("email").value = posts.email ? posts.email : "";
+    document.getElementById("address").value = posts.address
+      ? posts.address
+      : "";
+  });
