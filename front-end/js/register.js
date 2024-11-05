@@ -33,7 +33,7 @@ document.querySelector('.signup-button').addEventListener('click', function (e) 
         console.log(data); // Kiểm tra phản hồi từ server
         if (data.login_url) {
             alert(data.message); // Hiển thị thông báo cho người dùng
-            window.location.href = data.login_url; // Fetch login_url from the data / the response return message of the function.
+            window.location.href = data.login_url; // Fetch login_url from the data / the response return message of the function
         }
         else {
             alert(data.message)
