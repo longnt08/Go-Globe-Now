@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Information</title>
-    <link rel="stylesheet" href="./css/payment.css" />
+    <link rel="stylesheet" href="./css/tour_payment.css" />
   </head>
   <body>
     <div class="payment">
@@ -15,8 +15,7 @@
               <div class="stageNumber1">
                 <div
                   class="stage1"
-                  style="border: 2px solid blue; padding-top: 3px"
-                >
+                  style="border: 2px solid blue; padding-top: 3px">
                   1
                 </div>
                 <div class="stage0"></div>
@@ -31,8 +30,7 @@
                 <div class="stage0" style="background-color: blue"></div>
                 <div
                   class="stage1"
-                  style="border: 2px solid blue; padding-top: 3px"
-                >
+                  style="border: 2px solid blue; padding-top: 3px">
                   2
                 </div>
               </div>
@@ -43,8 +41,7 @@
                 <div class="stage0" style="background-color: blue"></div>
                 <div
                   class="stage1"
-                  style="border: 2px solid blue; padding-top: 3px"
-                >
+                  style="border: 2px solid blue; padding-top: 3px">
                   3
                 </div>
               </div>
@@ -63,30 +60,22 @@
                       class="text"
                       type="text"
                       id="firstName"
-                      value="Phạm Hoàng"
-                    />
+                      required/>
                   </div>
                   <div class="infoName">
                     <label for="lastName">Tên</label>
-                    <input class="text" type="text" id="lastName" value="Anh" />
+                    <input class="text" type="text" id="lastName" required />
                   </div>
                   <div class="infoSex_input">
-                    <label>Giới tính</label>
+                    <label for="gender">Giới tính</label>
                     <div class="text infoSex">
-                      <input
-                        type="radio"
-                        name="Sex"
-                        value="male"
-                        checked
-                      /><span>Nam</span>
-                      <input type="radio" name="Sex" value="female" /><span
-                        >Nữ</span
-                      >
+                      <input type="radio" name="gender" value="male" checked/><span>Nam</span>
+                      <input type="radio" name="gender" value="female" checked /><span>Nữ</span>
                     </div>
                   </div>
                   <div class="infoBirthday_input">
                     <label for="birthday">Ngày sinh</label>
-                    <input class="text" type="date" id="birthday" />
+                    <input class="text" type="date" id="birthday" required/>
                   </div>
                   <div class="infoPhone">
                     <label for="phone">Số điện thoại</label>
@@ -95,12 +84,11 @@
                       type="tel"
                       id="phone"
                       name="phone"
-                      value="0123456789"
-                    />
+                      required/>
                   </div>
                   <div class="infoEmail">
                     <label for="email">Email</label>
-                    <input class="text" type="email" id="email" />
+                    <input class="text" type="email" id="email" required/>
                   </div>
                 </div>
                 <div class="infoAddress_input">
@@ -109,17 +97,15 @@
                     class="text"
                     type="text"
                     id="address"
-                    placeholder="Nhà số 1 ngõ 2/3 quận A Hà Nội"
-                  />
+                    required/>
                 </div>
                 <div class="infoName_input">
                   <div class="infoNumber">
-                    <label for="quantity">Số người tham gia</label>
+                    <label for="numPeople">Số người tham gia</label>
                     <input
                       class="text"
                       type="number"
-                      id="quantity"
-                      value="1"
+                      id="numPeople"
                       min="1"
                     />
                   </div>
@@ -130,19 +116,12 @@
                 </div>
               </form>
             </div>
-            <div class="myService_DichVu">
-              <img
-                src="https://carshop.vn/wp-content/uploads/2022/07/xe-vung-tau-bien-hoa-dong-nai-5.jpg"
-              />
-              <div class="myService_TenDichVu">
-                Xe thương gia (Hà Nội-Sài Gòn)
-              </div>
-              <div class="myService_ThongTinDichVu">
-                <span>- Số chỗ: 16 chỗ</span>
-                <span
-                  >- Đánh giá chung: Xe sạch sẽ, vui tính, thân thiện,...</span
-                >
-              </div>
+            <div id="tourInfo"> <!--.myService_DichVu-->
+              <h2 id="tourName" style="font-size: 20px; padding-left: 10px;"></h2>
+              <img  alt="tourImage" id="tourImage">
+              <p>Điểm đến: <span id="destination"></span></p>
+              <p>Số lượng người tối đa: <span id="maxPeople"></span></p>
+              <p>Giá: <span id="price"></span> VND</p>
             </div>
             <div class="myBill">
               <div class="bill">
@@ -298,6 +277,6 @@
         </div>
       </div>
     </div>
-    <script src="./js/payment.js"></script>
+    <script src="./js/tour_payment.js"></script>
   </body>
 </html>

@@ -32,7 +32,7 @@ function createTour(tour) {
   registerBtn.textContent = "Dang ky";
   registerBtn.classList.add("register-btn");
   registerBtn.onclick = () => {
-    window.location.href = `http://127.0.0.1:5500/front-end/tour_registration.html?tour_id=${tour._id}`;
+    window.location.href = `http://127.0.0.1:5500/front-end/tour_payment.html?tour_id=${tour._id}`;
   };
 
   // Them nut luu tour

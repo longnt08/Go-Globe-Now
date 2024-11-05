@@ -105,7 +105,7 @@ body {
 }
 .myInfo {
   display: flex;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   gap: 10px;
   justify-content: center;
   transition: opacity 0.5s linear;
@@ -117,7 +117,7 @@ body {
   display: none;
 }
 .myTable {
-  width: 600px;
+  width: 550px;
   transition: width 0.5s linear;
   overflow: hidden;
   position: relative;
@@ -128,7 +128,7 @@ body {
   width: 0;
 }
 form {
-  width: 600px;
+  width: 550px;
 }
 .text {
   width: 100%;
@@ -213,25 +213,23 @@ button {
   border-radius: 10px;
   background-color: rgba(50, 150, 255, 0.8);
 }
-.myService_DichVu {
-  width: 300px;
+#tourInfo {
+  width: 400px;
   height: 400px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.3);
+  text-align: center;
 }
-.myService_TenDichVu {
-  height: 25px;
-  font-size: 20px;
-  margin-left: 10px;
+#tourInfo img {
+  padding: 0;
 }
-.myService_ThongTinDichVu {
-  height: 105px;
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-  overflow: auto;
+#tourInfo p {
+  padding-left: 10px;
+  float: left;
+  font-size: 16px;
 }
-.myService_DichVu img {
+
+#tourInfo img {
   width: 280px;
   height: 200px;
   margin: 10px;
@@ -373,7 +371,7 @@ td {
   height: 400px;
   display: none;
   grid-template-columns: 300px 300px 300px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   gap: 20px;
   opacity: 0;
   overflow-x: hidden;
