@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request, session
 from pymongo import MongoClient
 from bson import ObjectId
 
-api_routes = Blueprint('api_routes', __name__)
+tour_routes = Blueprint('tour_routes', __name__)
 
 client = MongoClient("mongodb+srv://thanhlong:LTWNhom3@goglobenow.vroew.mongodb.net/?retryWrites=true&w=majority&appName=GoGlobeNow")
 db = client.services
@@ -10,7 +10,7 @@ tours_collection = db.available_tours
 registration_tours = db.registration_tours
 
 # get all tours to display in screen
-@api_routes.route('/tours', methods=['GET'])
+@tour_routes.route('/tours', methods=['GET'])
 def get_all_tour():
     # query all tours from mongoDB
     tours_cursor = tours_collection.find()
@@ -29,7 +29,7 @@ def get_all_tour():
     return jsonify(tours)
 
 # filter tours
-@api_routes.route('/tours/filter_tours', methods=['GET'])
+@tour_routes.route('/tours/filter_tours', methods=['GET'])
 def filter_tours():
     tours_cursor = tours_collection.find()
 
@@ -51,7 +51,7 @@ def filter_tours():
     return jsonify(filtered_tours)
 
 # get tour details
-@api_routes.route('/tours/<tour_id>', methods=['GET'])
+@tour_routes.route('/tours/<tour_id>', methods=['GET'])
 def get_tour_details(tour_id):
     tour = tours_collection.find_one({"_id": ObjectId(tour_id)})
     if tour:
@@ -61,7 +61,7 @@ def get_tour_details(tour_id):
         return jsonify({"error": "Tour not found"}), 404
     
 # handle tour registration
-@api_routes.route('/tours/register_tour', methods=["POST"])
+@tour_routes.route('/tours/register_tour', methods=["POST"])
 def register_tour():
     data = request.json
 

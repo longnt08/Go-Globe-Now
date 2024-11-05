@@ -5,7 +5,7 @@ from bson import ObjectId
 import re
 from datetime import datetime
 
-api_routes = Blueprint('api_routes', __name__)
+user_routes = Blueprint('user_routes', __name__)
 
 client = MongoClient("mongodb+srv://thanhlong:LTWNhom3@goglobenow.vroew.mongodb.net/?retryWrites=true&w=majority&appName=GoGlobeNow")
 db = client.people
@@ -26,7 +26,7 @@ def is_strong_password(password):
         re.search(r"[!@#$%^&*(),.?\":{}|<>]", password)
     )
 
-@api_routes.route('/users/register', methods = ['POST'])
+@user_routes.route('/users/register', methods = ['POST'])
 def register():
     try:
         # Receive user registration info under json.
@@ -79,7 +79,7 @@ def register():
         result = users_collection.insert_one(user_data)
         return jsonify({"message": "User registered successfully",
                         "user_id": str(result.inserted_id),
-                        "login_url": "http://127.0.0.1:3000/front-end/login.html"}), 201
+                        "login_url": "http://127.0.0.1:5500/front-end/login.html"}), 201
 
         # This "return jsonify()" is the final result (namely data) after successfully
         # executing the register() function.
@@ -93,7 +93,7 @@ def register():
     except Exception as e:
         return jsonify({"message": str(e)}), 500
 
-@api_routes.route('/users/login', methods = ['GET', 'POST'])
+@user_routes.route('/users/login', methods = ['GET', 'POST'])
 def login():
     try:
         credentials = request.get_json()
@@ -116,7 +116,7 @@ def login():
     except Exception as e:
         return jsonify({"message": str(e)}), 500
 
-@api_routes.route('/users/logout', methods = ['POST'])
+@user_routes.route('/users/logout', methods = ['POST'])
 def logout():
     try:
         session.clear()
@@ -124,7 +124,7 @@ def logout():
     except Exception as e:
         return jsonify({"message": str(e)}), 500
 
-@api_routes.route('/users/profile', methods = ['GET'])
+@user_routes.route('/users/profile', methods = ['GET'])
 def profile():
     if "user_id" in session:
         return jsonify({"message": "User is logged in", "user_id": session["user_id"]}), 200
