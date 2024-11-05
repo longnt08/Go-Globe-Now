@@ -3,14 +3,14 @@ from pymongo import MongoClient
 from bson import ObjectId
 
 # Tạo một Blueprint mới
-users_api = Blueprint('users_api', __name__)
+user_routes = Blueprint('user_routes', __name__)
 
 # Kết nối đến MongoDB Atlas
 client = MongoClient("mongodb+srv://thanhlong:LTWNhom3@goglobenow.vroew.mongodb.net/")
 db = client.people  # Chọn cơ sở dữ liệu 'people'
 users_collection = db.users  # Chọn collection 'users'
 
-@users_api.route('/', methods=['GET'])
+@user_routes.route('/', methods=['GET'])
 def get_users():
     print("Route /api/users được gọi")  # Debug
     users = list(users_collection.find({}))
@@ -23,7 +23,7 @@ def get_users():
     return jsonify(users), 200
 
 
-@users_api.route('/<user_id>', methods=['PUT'])
+@user_routes.route('/users/<user_id>', methods=['PUT'])
 def update_user(user_id):
     # Kiểm tra xem người dùng có tồn tại không
     user = users_collection.find_one({"_id": ObjectId(user_id)})  # Sử dụng ObjectId để tìm
@@ -43,7 +43,7 @@ def update_user(user_id):
     updated_user = users_collection.find_one({"_id": ObjectId(user_id)})
     return jsonify({"message": "User updated", "user": updated_user}), 200
 
-@users_api.route('/', methods=['POST'])
+@user_routes.route('/users', methods=['POST'])
 def add_user():
     data = request.get_json()  # Nhận dữ liệu từ yêu cầu
     new_user = {
