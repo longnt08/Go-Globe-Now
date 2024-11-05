@@ -47,6 +47,13 @@ def register():
                                        "uppercase, lowercase, numbers, "
                                        "and special characters."})
 
+        if user_data.get("gender") not in ["Nam", "Nữ", "Khác"]:
+            return jsonify({"message": "Invalid gender value. Please select 'male', 'female', or 'other'."}), 400
+
+        phone_pattern = r'^\d{10,15}$'
+        if not re.match(phone_pattern, user_data["phone"]):
+            return jsonify({"message": "Invalid phone number format. Should be between 10 and 15 digits."}), 400
+
         # username_existence_check
         existing_user = users_collection.find_one({"username": user_data["username"]})
         existing_email = users_collection.find_one({"email": user_data["email"]})

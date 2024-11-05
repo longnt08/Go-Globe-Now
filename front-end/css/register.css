@@ -1,14 +1,15 @@
-
+/* Reset focus outline */
 *:focus {
   outline: none;
 }
 
+/* Body styling */
 body {
   margin: 0;
   padding: 0;
-  background: #FFFFFF; /* Light gray background for a modern feel */
+  background: #FFFFFF;
   font-size: 16px;
-  color: #333; /* Dark gray for main text */
+  color: #333;
   font-family: 'Verdana', sans-serif;
   font-weight: 700;
   background-image: url("../img/ha-long-bay-1-852.jpg");
@@ -17,15 +18,73 @@ body {
   background-repeat: no-repeat;
 }
 
+/* Container layout */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.sub-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  height: 500px;
+}
+
+.logo {
+  margin-left: 50px;
+  padding: 0;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+}
+
+.recaptcha-notice {
+  font-size: 7px;
+  color: black;
+  text-align: center;
+  margin-top: 10px;
+  max-width: 200px;
+}
+
+.recaptcha-notice a {
+  color: #364bd2;
+  text-decoration: none;
+}
+
+.recaptcha-notice a:hover {
+  text-decoration: underline;
+}
+
+/* Divider styling */
+.divider {
+  width: 1px;
+  height: 300px;
+  background-color: black;
+  margin: 0 20px;
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.divider:hover {
+  box-shadow: 4px 0px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Login box styling */
 #login-box {
   position: relative;
   margin: auto;
-  padding: 0;
   width: 600px;
   height: 400px;
-  background: #FFFFFF; /*#FFFFFF; /* White background for contrast */
-  border-radius: 10px; /* Softer rounded corners */
-  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  background: #FFFFFF;
+  border-radius: 10px;
 }
 
 .left {
@@ -33,22 +92,24 @@ body {
   top: 0;
   left: 0;
   box-sizing: border-box;
-  padding: 30px;
-  padding-top: 28px;
+  padding: 0px 30px 0;
   width: 300px;
   height: 400px;
 }
 
 h1 {
-  padding: 0px;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
   font-weight: 700;
   font-size: 25px;
-  color: #1F2937; /* Darker gray for headers */
+  color: #1F2937;
 }
 
+/* Input styling */
 input[type="text"],
-input[type="password"] {
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select[name="gender"] {
   display: block;
   box-sizing: border-box;
   margin-top: 3px;
@@ -56,7 +117,7 @@ input[type="password"] {
   padding: 8px;
   width: 240px;
   height: 36px;
-  border: 1px solid #CBD5E1; /* Light border for input fields */
+  border: 1px solid #CBD5E1;
   border-radius: 4px;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -65,8 +126,11 @@ input[type="password"] {
 }
 
 input[type="text"]:focus,
-input[type="password"]:focus {
-  border-color: #38B2AC; /* Muted teal focus color */
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+select[name="gender"]:focus {
+  border-color: #38B2AC;
   color: #1F2937;
 }
 
@@ -74,38 +138,58 @@ input[type="submit"] {
   margin-top: 28px;
   width: 130px;
   height: 36px;
-  background: #38B2AC; /* Teal button color */
+  background: #38B2AC;
   border: none;
   border-radius: 4px;
   color: #FFFFFF;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   text-transform: uppercase;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-  background: #319795; /* Slightly darker teal on hover */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow on hover */
+  background: #319795;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+input::placeholder {
+  font-size: 12px;
+  color: #042f67;
+  font-family: 'Poppins', sans-serif;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -7px;
+}
+
+.flex-container input[type="text"],
+.flex-container input[type="date"],
+.flex-container select {
+  width: 48%;
+  height: 36px;
+}
+
+/* OR circle styling */
 .or {
-    font-size: 10px;
+  font-size: 10px;
   position: absolute;
   top: 180px;
   left: 280px;
   width: 40px;
   height: 40px;
-  background: #FFFFFF;/*#E2E8F0; /* Light gray for the OR circle */
-  color: #1F2937; /* Dark text color */
+  background: #FFFFFF;
+  color: #1F2937;
   border-radius: 50%;
-  /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
   line-height: 40px;
   text-align: center;
 }
 
+/* Social sign-in button styling */
 .right {
   position: absolute;
   top: 0;
@@ -114,7 +198,7 @@ input[type="submit"]:focus {
   padding: 40px;
   width: 300px;
   height: 400px;
-  background: #FFFFFF;/*#EDF2F7; /* Light background for social section */
+  background: #FFFFFF;
   border-radius: 0 8px 8px 0;
 }
 
@@ -129,28 +213,28 @@ input[type="submit"]:focus {
 button.social-signin {
   margin-bottom: 20px;
   width: 240px;
-  height: 40px; /* Increased height to fit logo */
+  height: 40px;
   border: none;
-  border-radius: 20px; /* More rounded corners */
+  border-radius: 20px;
   color: #FFFFFF;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  display: flex; /* Use flexbox to layout logo and text */
-  align-items: center; /* Center vertically */
-  padding: 0 15px; /* Add padding on left and right */
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 button.social-signin img.social-logo {
-  width: 20px; /* Logo size */
-  height: 20px; /* Logo size */
-  margin-right: 10px; /* Space between logo and text */
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 
 button.social-signin span {
-  flex-grow: 1; /* Allow text to grow and take remaining space */
-  text-align: center; /* Center the text */
+  flex-grow: 1;
+  text-align: center;
   padding-right: 20px;
 }
 
@@ -160,138 +244,88 @@ button.social-signin:focus {
 }
 
 button.social-signin.facebook {
-  background: #3B5998; /* Facebook blue */
+  background: #3B5998;
 }
 
 button.social-signin.twitter {
-  background: #1DA1F2; /* Twitter blue */
+  background: #1DA1F2;
 }
 
 button.social-signin.google {
-  background: #DB4437; /* Google red */
+  background: #DB4437;
 }
 
 .signup-button {
-    width: 150px; /* Wider button */
-    height: 30px; /* Taller button */
-    background: #364bd2; /* Teal button color */
-    border: none;
-    border-radius: 4px;
-    color: #FFFFFF;
-    font-family: 'Verdana', sans-serif; /* Updated font */
-    font-weight: 500;
-    font-size: 12px; /* Larger text */
-    cursor: pointer;
-  }
-  
-  .signup-button:hover,
-  .signup-button:focus {
-    background: #2e0098; /* Slightly darker teal on hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow on hover */
-    transform: scale(1.05); /* Slightly enlarge button on hover */
-  }
-  
-  input::placeholder {
-    font-size: 12px; /* Kích thước chữ nhỏ hơn */
-    color: #042f67; /* Màu sắc cho placeholder (có thể điều chỉnh theo ý bạn) */
-    font-family: 'Poppins', sans-serif; /* Đảm bảo sử dụng phông chữ nhất quán */
+  width: 150px;
+  height: 30px;
+  background: #364bd2;
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-family: 'Verdana', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
 }
 
+.signup-button:hover,
+.signup-button:focus {
+  background: #2e0098;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+/* Terms container styling */
+.terms-container {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+}
+
+.terms-container input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Right section styling */
 .right p {
-    font-size: 10px; /* Kích thước chữ cho các dòng chữ */
-    color: #555; /* Màu chữ nhạt hơn cho các dòng chữ */
-    margin-top: 10px; /* Khoảng cách giữa các dòng chữ */
-    text-align: center; /* Căn giữa văn bản */
+  font-size: 10px;
+  color: #555;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .right a {
-    color: #364bd2; /* Màu chữ cho các liên kết */
-    text-decoration: none; /* Bỏ gạch chân */
+  color: #364bd2;
+  text-decoration: none;
 }
 
 .right a:hover {
-    text-decoration: underline; /* Gạch chân khi hover */
+  text-decoration: underline;
 }
 
-.terms-container {
-    margin: 10px 0; /* Khoảng cách phía trên và dưới */
-    display: flex; /* Sử dụng flexbox để căn giữa */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    font-size: 10px;
+input[type="password"],
+input[type="email"] {
+  margin: 0 0 10px 0;
 }
 
-.terms-container in put[type="checkbox"] {
-    margin-right: 10px; /* Khoảng cách giữa checkbox và nhãn */
+input[name="username"] {
+  display: block;
+  box-sizing: border-box;
+  margin-top: 1px; /* Điều chỉnh khoảng cách trên */
+  margin-bottom: 12px; /* Điều chỉnh khoảng cách dưới */
+  padding: 8px;
+  width: 240px;
+  height: 36px;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  transition: border 0.2s ease, color 0.2s ease;
 }
 
-
-.container {
-  display: flex;
-  justify-content: center; /* Căn giữa theo chiều ngang */
-  align-items: center; /* Căn giữa theo chiều dọc */
-  height: 100vh; /* Chiều cao toàn bộ cửa sổ */
-}
-
-.sub-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #FFFFFF;
-  border-radius: 10px;
-}
-
-.logo {
-  margin-left: 50px; /* Khoảng cách giữa logo và login box */
-  padding: 0;
-}
-
-.logo img {
-  width: 100%; /* Điều chỉnh để ảnh vừa với chiều rộng của div */
-  height: auto; /* Giữ tỉ lệ ảnh khi thay đổi chiều rộng */
-  max-width: 200px; /* Giới hạn kích thước tối đa của ảnh nếu cần */
-}
-
-.recaptcha-notice {
-  font-size: 7px; /* Kích thước nhỏ cho dòng chữ */
-  color: black; /* Màu xám nhẹ */
-  text-align: center; /* Căn giữa văn bản */
-  margin-top: 10px; /* Khoảng cách phía trên */
-  max-width: 200px; /* Đảm bảo không vượt quá chiều rộng của logo */
-}
-
-.recaptcha-notice a {
-  color: #364bd2; /* Màu xanh cho các liên kết */
-  text-decoration: none; /* Bỏ gạch chân */
-}
-
-.recaptcha-notice a:hover {
-  text-decoration: underline; /* Gạch chân khi hover */
-}
-
-.divider {
-  width: 1px;
-  height: 300px; /* Độ cao của đường kẻ */
-  background-color: black; /* Màu sắc của đường kẻ */
-  margin: 0 20px; /* Khoảng cách xung quanh đường kẻ */
-  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
-  transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho đổ bóng */
-}
-
-.divider:hover {
-  box-shadow: 4px 0px 12px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
-}
-
-.flex-container {
-  display: flex; /* Sử dụng flexbox để căn chỉnh */
-  justify-content: space-between; /* Căn giữa khoảng cách giữa hai trường */
-  margin-bottom: -7px; /* Khoảng cách dưới cùng */
-}
-
-.flex-container input[type="text"] {
-  width: 48%; /* Chiều rộng của mỗi trường */
-  height: 36px; /* Chiều cao như các trường khác */
-}
-
-input[type="password"]:nth-of-type(2) {
-  margin-bottom: 0px; /* Giảm khoảng cách dưới cùng */
+input[name="username"]:focus {
+  border-color: #38B2AC; /* Màu viền khi nhấn vào */
+  color: #1F2937;
 }

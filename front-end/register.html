@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up Page</title>
     <link rel="stylesheet" href="css/register.css">
-    <script src="js/register.js"></script>
 </head>
 <body>
     <div class="container">
@@ -26,22 +25,28 @@
                 <div class="left">
                     <h1>Tạo tài khoản</h1>
                     <div class="flex-container">
-                        <input type="text" name="first_name" placeholder="Họ" />
-                        <input type="text" name="last_name" placeholder="Tên" />
+                        <input id="last_name" type="text" name="first_name" placeholder="Họ" />
+                        <input id="first_name" type="text" name="last_name" placeholder="Tên" />
                     </div>
                     <div class="flex-container">
-                        <input type="text" name="username" placeholder="Tên đăng nhập" />
-                        <input type="text" name="email" placeholder="Email" />
+                        <input id="dob" type="date" name="dob" placeholder="Ngày sinh" pattern="\d{2}-\d{2}-\d{4}"/>
+                        <select id="gender" name="gender">
+                            <option value="" disabled selected>Giới tính</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                            <option value="Khác">Khác</option>
+                        </select>
                     </div>
                     <div class="flex-container">
-                        <input type="text" name="phone" placeholder="Số điện thoại" />
-                        <input type="text" name="address" placeholder="Địa chỉ" />
+                        <input id="phone" type="text" name="phone" placeholder="Số điện thoại" />
+                        <input id="address" type="text" name="address" placeholder="Địa chỉ" />
                     </div>
-                    <input type="password" name="password" placeholder="Mật khẩu" />
-                    <input type="password" name="password2" placeholder="Xác nhận mật khẩu" />
+                    <input id="username" type="text" name="username" placeholder="Tên đăng nhập" />
+                    <input id="email" type="email" name="email" placeholder="Email" />
+                    <input id="password" type="password" name="password" placeholder="Mật khẩu" />
     
                     <div class="terms-container">
-                        <input type="checkbox" id="terms" name="terms" required />
+                        <input id="terms" type="checkbox" id="terms" name="terms" required />
                         <label for="terms">Tôi đồng ý với <a href="#">Điều khoản sử dụng</a></label>
                     </div>
     
@@ -70,5 +75,6 @@
             </div>
         </div>
     </div>
+    <script src="js/register.js"></script>
 </body>
 </html>

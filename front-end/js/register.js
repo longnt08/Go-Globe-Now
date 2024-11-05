@@ -1,21 +1,41 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const inputs = document.querySelectorAll('input[type="text"], input[type="password"]');
-    const registerButton = document.querySelector('.signup-button'); // Sử dụng class để tìm nút đăng ký
+document.querySelector('.signup-button').addEventListener('click', function (e) {
+    e.preventDefault(); // Ngăn chặn hành vi mặc định của nút
 
-    // Hiệu ứng focus cho input
-    inputs.forEach(input => {
-        input.addEventListener('focus', function () {
-            this.style.borderColor = '#38B2AC'; // Màu viền khi focus
-        });
+    let dob = document.querySelector('input[name="dob"]').value;
+    if (dob) {
+        const [year, month, day] = dob.split("-");
+        dob = `${day}-${month}-${year}`;
+    }
 
-        input.addEventListener('blur', function () {
-            this.style.borderColor = '#CBD5E1'; // Trả về màu viền ban đầu
-        });
-    });
+    const userData = {
+        first_name: document.querySelector('input[name="first_name"]').value,
+        last_name: document.querySelector('input[name="last_name"]').value,
+        dob: dob,
+        gender: document.querySelector('select[name="gender"]').value,
+        phone: document.querySelector('input[name="phone"]').value,
+        address: document.querySelector('input[name="address"]').value,
+        username: document.querySelector('input[name="username"]').value,
+        email: document.querySelector('input[name="email"]').value,
+        password: document.querySelector('input[name="password"]').value
+    };
 
-    // Thông báo khi nhấn nút đăng ký
-    registerButton.addEventListener('click', function (event) {
-        event.preventDefault(); // Ngăn chặn form gửi đi
-        alert('Đăng ký thành công!'); // Hiển thị thông báo thành công
+    console.log("User Data:", userData);
+
+    fetch('http://127.0.0.1:5000/users/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // Kiểm tra phản hồi từ server
+        if (data.message) {
+            alert(data.message); // Hiển thị thông báo cho người dùng
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
 });
