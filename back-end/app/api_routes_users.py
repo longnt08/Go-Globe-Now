@@ -173,3 +173,15 @@ def add_user():
     users_collection.insert_one(new_user)  # Thêm người dùng mới vào collection
     new_user['_id'] = str(new_user['_id'])  # Chuyển đổi ObjectId thành chuỗi để trả về
     return jsonify({"message": "User added", "user": new_user}), 201
+
+@user_routes.route('/users', methods=['GET'])
+def get_users():
+    try:
+        user = users_collection.find_one({"_id": ObjectId("6729721febc570436d090332")},{"password": 0})
+        if user:
+            user["_id"] = str(user["_id"])
+            return jsonify(user), 200
+        else:
+            return jsonify({"error": "User not found"}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
