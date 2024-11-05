@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Verdana', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Chiều cao toàn bộ cửa sổ */
+}
+
+.left {
+    flex: 1; /* Chiếm 50% chiều rộng */
+    padding: 0px;
+    background-color: #FFFFFF; /* Nền trắng cho form */
+    position: relative;
+}
+
+.logo img {
+    padding: 15px 15px;
+    width: 150px; /* Kích thước logo */
+}
+
+#login-form {
+    margin-top: 0px;
+    width: 80%; /* Chiếm 80% chiều rộng */
+    max-width: 300px; /* Đặt chiều rộng tối đa */
+    margin-left: auto; /* Căn giữa form */
+    margin-right: auto; /* Căn giữa form */
+}
+
+h1 {
+    font-size: 25px;
+    color: #1F2937;
+    text-align: left; /* Căn lề trái */
+}
+
+input[type="text"],
+input[type="password"] {
+    display: block;
+    width: 100%; /* Thay đổi chiều rộng thành 100% */
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #CBD5E1;
+    border-radius: 4px;
+}
+
+.login-button {
+    width: 100%; /* Thay đổi chiều rộng thành 100% */
+    padding: 10px;
+    background-color: #38B2AC;
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #319795;
+}
+
+.login-notice {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.social-login {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.loginwith {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+button.social-signin {
+    display: block;
+    width: 80%; /* Thay đổi chiều rộng thành 80% */
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    max-width: 300px; /* Đặt chiều rộng tối đa */
+    margin-left: auto; /* Căn giữa nút */
+    margin-right: auto; /* Căn giữa nút */
+}
+
+button.social-signin.facebook {
+    background-color: #3B5998; /* Facebook blue */
+}
+
+button.social-signin.twitter {
+    background-color: #1DA1F2; /* Twitter blue */
+}
+
+button.social-signin.google {
+    background-color: #DB4437; /* Google red */
+}
+
+.right {
+    flex: 1; /* Chiếm 50% chiều rộng */
+    background-image: url("../img/ha-long-bay-1-852.jpg"); /* Hình nền bên phải */
+    background-size: cover;
+    background-position: center;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sub-container">
+            <div class="logo">
+                <img src="img/GoGlobeNowLogo.jpg" alt="Logo" />
+                <p class="recaptcha-notice">
+                    This site is protected by reCAPTCHA Enterprise and the Google 
+                    <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and 
+                    <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
+                </p>
+            </div>
+    
+            <div class="divider"></div>
+    
+            <div id="login-box">
+                <div class="left">
+                    <h1>Tạo tài khoản</h1>
+                    <div class="flex-container">
+                        <input id="last_name" type="text" name="first_name" placeholder="Họ" />
+                        <input id="first_name" type="text" name="last_name" placeholder="Tên" />
+                    </div>
+                    <div class="flex-container">
+                        <input id="dob" type="date" name="dob" placeholder="Ngày sinh" pattern="\d{2}-\d{2}-\d{4}"/>
+                        <select id="gender" name="gender">
+                            <option value="" disabled selected>Giới tính</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+                    </div>
+                    <div class="flex-container">
+                        <input id="phone" type="text" name="phone" placeholder="Số điện thoại" />
+                        <input id="address" type="text" name="address" placeholder="Địa chỉ" />
+                    </div>
+                    <input id="username" type="text" name="username" placeholder="Tên đăng nhập" />
+                    <input id="email" type="email" name="email" placeholder="Email" />
+                    <input id="password" type="password" name="password" placeholder="Mật khẩu" />
+    
+                    <div class="terms-container">
+                        <input id="terms" type="checkbox" id="terms" name="terms" required />
+                        <label for="terms">Tôi đồng ý với <a href="#">Điều khoản sử dụng</a></label>
+                    </div>
+    
+                    <button type="submit" class="signup-button">Đăng ký</button>
+                </div>
+                
+                <div class="right">
+                    <span class="loginwith">Đăng nhập với<br />mạng xã hội</span>
+                    <button class="social-signin facebook">
+                        <img src="img/facebook-logo.png" alt="Facebook Logo" class="social-logo" />
+                        <span>Tiếp tục với Facebook</span>
+                    </button>
+                    <button class="social-signin twitter">
+                        <img src="img/twitter.png" alt="Twitter Logo" class="social-logo" />
+                        <span>Tiếp tục với Twitter</span>
+                    </button>
+                    <button class="social-signin google">
+                        <img src="img/google.png" alt="Google Logo" class="social-logo" />
+                        <span>Tiếp tục với Google+</span>
+                    </button>
+                    <p class="login-notice">Đã có tài khoản? <a href="#">Đăng nhập</a></p>
+                </div>
+    
+                <div class="or">OR</div>
+    
+            </div>
+        </div>
+    </div>
+    <script src="js/register.js"></script>
+</body>
+</html>
