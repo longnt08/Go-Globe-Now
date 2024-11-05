@@ -1,36 +1,57 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Lấy các phần tử cần thiết
-    const passwordInput = document.querySelector('input[name="password"]');
-    const togglePassword = document.createElement('span');
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.login-button').addEventListener('click', function (e) {
+        e.preventDefault(); // Ngăn chặn hành vi mặc định của nút
 
-    // Thêm biểu tượng hiển thị mật khẩu
-    togglePassword.textContent = '👁️';
-    togglePassword.style.cursor = 'pointer';
-    passwordInput.parentNode.insertBefore(togglePassword, passwordInput.nextSibling);
+        const credentials = {
+            username: document.querySelector('input[name="username"]').value,
+            password: document.querySelector('input[name="password"]').value
+        };
 
-    // Xử lý sự kiện nhấn nút hiển thị mật khẩu
-    togglePassword.addEventListener('click', function() {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.textContent = type === 'password' ? '👁️' : '👁️‍🗨️'; // Thay đổi biểu tượng
-    });
+        console.log("User Credentials:", credentials);
 
-    // Xử lý sự kiện nhấn nút Đăng nhập
-    const loginButton = document.querySelector('.login-button');
-    loginButton.addEventListener('click', function(event) {
-        const username = document.querySelector('input[name="username"]').value;
-        const password = passwordInput.value;
-
-        if (!username || !password) {
-            event.preventDefault(); // Ngăn chặn gửi form
-            alert('Vui lòng nhập tên đăng nhập và mật khẩu.'); // Hiện thông báo lỗi
-        } else {
-            // Thêm hiệu ứng chuyển động (như một ví dụ đơn giản)
-            loginButton.style.transition = 'background-color 0.3s ease';
-            loginButton.style.backgroundColor = '#FF5733'; // Thay đổi màu nút khi nhấn
-            setTimeout(() => {
-                loginButton.style.backgroundColor = '#38B2AC'; // Khôi phục màu sau 0.3 giây
-            }, 300);
-        }
+        fetch('http://127.0.0.1:5000/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(credentials)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data); // Kiểm tra phản hồi từ server
+            if (data.message) {
+                alert(data.message); // Hiển thị thông báo cho người dùng
+                if (data.user_id) {
+                    // Thực hiện kiểm tra profile sau khi đăng nhập thành công
+                    fetch('http://127.0.0.1:5000/users/profile', {
+                        method: 'GET',
+                        credentials: 'include',
+                    })
+                    .then(response => response.json())
+                    .then(profileData => {
+                        console.log('Profile check:', profileData);
+                        if (profileData.message === "User is logged in") {
+                            console.log("Session is active and user is logged in.");
+                            // Sau khi xác nhận session, điều hướng sang trang chủ hoặc trang khác
+                            // window.location.href = "http://127.0.0.1:3000/#";
+                        } else {
+                            console.log("User is not logged in.");
+                            alert("Có lỗi xảy ra. Vui lòng đăng nhập lại.");
+                        }
+                    })
+                    .catch(error => console.error('Error fetching profile:', error));
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Đã xảy ra lỗi trong quá trình đăng nhập. Vui lòng thử lại!');
+        });
     });
 });

@@ -15,7 +15,7 @@ def create_app():
 
     Session(app)
 
-    CORS(app)
+    CORS(app, supports_credentials = True, origins = ["http://127.0.0.1:3000"])
     app.register_blueprint(api_routes)
 
     return app
