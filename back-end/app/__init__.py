@@ -1,10 +1,12 @@
 from flask import Flask
-from .api_routes_users import users_api
+from flask_cors import CORS
+from pymongo import MongoClient
+from .api_routes_search import search_api
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
 
-    # Đăng ký blueprint
-    app.register_blueprint(users_api, url_prefix='/api/users')
-
+    app.secret_key = 'ptranvanh'
+    app.register_blueprint(search_api, url_prefix='/api')
     return app
