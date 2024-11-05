@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
           document.getElementById("tourImage").src = tour.img;
           document.getElementById("destination").textContent = tour.destination;
           document.getElementById("startDate").textContent = tour.start_date;
-          document.getElementById("endDate").textContent = tour.end_date;
           document.getElementById("maxPeople").textContent = tour.max_people;
           document.getElementById("price").textContent = tour.price;
       })
