@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách người dùng</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Danh sách người dùng</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="user-table-body">
+            <!-- Các dòng dữ liệu sẽ được thêm vào đây -->
+        </tbody>
+    </table>
+
+    <script>
+        // Gửi yêu cầu GET đến API để lấy danh sách người dùng
+        fetch('http://localhost:5000/users_api/')  // Thay 'localhost:5000' bằng đường dẫn phù hợp của API
+            .then(response => response.json())
+            .then(users => {
+                const tableBody = document.getElementById('user-table-body');
+                users.forEach(user => {
+                    const row = document.createElement('tr');
+
+                    const idCell = document.createElement('td');
+                    idCell.textContent = user._id;
+                    row.appendChild(idCell);
+
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = user.name;
+                    row.appendChild(nameCell);
+
+                    const emailCell = document.createElement('td');
+                    emailCell.textContent = user.email;
+                    row.appendChild(emailCell);
+
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching users:', error));
+    </script>
+</body>
+</html>
