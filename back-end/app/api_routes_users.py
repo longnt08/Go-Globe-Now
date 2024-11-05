@@ -26,6 +26,7 @@ def is_strong_password(password):
         re.search(r"[!@#$%^&*(),.?\":{}|<>]", password)
     )
 
+# đăng ký người dùng
 @user_routes.route('/users/register', methods = ['POST'])
 def register():
     try:
@@ -93,6 +94,7 @@ def register():
     except Exception as e:
         return jsonify({"message": str(e)}), 500
 
+# đăng nhập người dùng
 @user_routes.route('/users/login', methods = ['GET', 'POST'])
 def login():
     try:
@@ -116,6 +118,7 @@ def login():
     except Exception as e:
         return jsonify({"message": str(e)}), 500
 
+# đăng xuất người dùng
 @user_routes.route('/users/logout', methods = ['POST'])
 def logout():
     try:
@@ -151,19 +154,20 @@ def update_user(user_id):
     updated_user = users_collection.find_one({"_id": ObjectId(user_id)})
     return jsonify({"message": "User updated", "user": updated_user}), 200
 
-@user_routes.route('/', methods=['GET'])
-def get_users():
- # Debug
-    users = list(users_collection.find({}))
-    for user in users:
-        user['_id'] = str(user['_id'])  # Chuyển đổi ObjectId thành chuỗi
-        for key, value in user.items():
-            if isinstance(value, bytes):
-                user[key] = value.decode('utf-8')
-    print(f"Users: {users}")  # Debug
-    return jsonify(users), 200
 
-@user_routes.route('/users', methods=['POST'])
+# @user_routes.route('/users/get_all', methods=['GET'])
+# def get_users():
+#     users = list(users_collection.find({}))
+#     for user in users:
+#         user['_id'] = str(user['_id']) 
+#         for key, value in user.items():
+#             if isinstance(value, bytes):
+#                 user[key] = value.decode('utf-8')
+#     print(f"Users: {users}")  
+#     return jsonify(users), 200
+
+# cập nhật thông tin người dùng
+@user_routes.route('/users/update_user', methods=['POST'])
 def add_user():
     data = request.get_json()  # Nhận dữ liệu từ yêu cầu
     new_user = {
@@ -174,10 +178,11 @@ def add_user():
     new_user['_id'] = str(new_user['_id'])  # Chuyển đổi ObjectId thành chuỗi để trả về
     return jsonify({"message": "User added", "user": new_user}), 201
 
-@user_routes.route('/users', methods=['GET'])
-def get_users():
+# lấy thông tin một người dùng
+@user_routes.route('/users/<id>', methods=['GET'])
+def get_users(id):
     try:
-        user = users_collection.find_one({"_id": ObjectId("6729721febc570436d090332")},{"password": 0})
+        user = users_collection.find_one({"_id": ObjectId(id)})
         if user:
             user["_id"] = str(user["_id"])
             return jsonify(user), 200

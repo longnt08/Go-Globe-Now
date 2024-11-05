@@ -68,6 +68,7 @@ function showAllTours() {
 
 // filter tour
 function applyFilter() {
+  
   const minPrice = document.getElementById("min_price").value;
   const maxPrice = document.getElementById("max_price").value;
   const category = document.getElementById("category").value;
