@@ -28,24 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.message) {
                 alert(data.message); // Hiển thị thông báo cho người dùng
                 if (data.user_id) {
-                    // Thực hiện kiểm tra profile sau khi đăng nhập thành công
-                    fetch('http://127.0.0.1:5000/users/profile', {
-                        method: 'GET',
-                        credentials: 'include',
-                    })
-                    .then(response => response.json())
-                    .then(profileData => {
-                        console.log('Profile check:', profileData);
-                        if (profileData.message === "User is logged in") {
-                            console.log("Session is active and user is logged in.");
-                            // Sau khi xác nhận session, điều hướng sang trang chủ hoặc trang khác
-                            // window.location.href = "http://127.0.0.1:3000/#";
-                        } else {
-                            console.log("User is not logged in.");
-                            alert("Có lỗi xảy ra. Vui lòng đăng nhập lại.");
-                        }
-                    })
-                    .catch(error => console.error('Error fetching profile:', error));
+                    // luu username vao localStorage
+                    localStorage.setItem('username', data.username);
+                    // chuyen huong den trang chu
+                    window.location.href = 'http://127.0.0.1:5500/front-end/info.html';
                 }
             }
         })

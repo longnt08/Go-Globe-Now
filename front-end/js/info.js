@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const username = localStorage.getItem('username');
+  if (username) {
+      document.getElementById("username").textContent = username;
+  } else {
+      alert("User not logged in. Redirecting to login page.");
+      window.location.href = "/login";
+  }
+});
+
 let accounts = document.querySelector(".accounts");
 let option = document.querySelector(".option");
 let action = document.querySelector(".action");
