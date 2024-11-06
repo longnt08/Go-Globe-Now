@@ -168,20 +168,26 @@ body {
   margin-bottom: 20px;
   overflow-x: auto;
 }
-.myService_DichVu {
+.myService_DichVu, .myService_DichVuDaDK {
   width: 300px;
   height: 390px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.3);
   text-align: center;
+}
+.myService_DichVu {
   display: grid;
   grid-template-rows: 10% 60% 5% 25%;
 }
-.myService_DichVu h3 {
+.myService_DichVuDaDK {
+  display: grid;
+  grid-template-rows: 10% 60% 5% 5% 20%;
+}
+.myService_DichVu h3, .myService_DichVuDaDK h3 {
   padding-left: 10px;
   margin: 5px;
 }
-.myService_DichVu img {
+.myService_DichVu img, .myService_DichVuDaDK img {
   width: 280px;
   height: 200px;
   margin: 10px;
@@ -192,12 +198,16 @@ body {
   font-size: 20px;
   font-weight: bold;
 }
+.myService_DichVuDaDK p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
 .btn-container {
   margin-top: 30px;
 }
-.myService_DichVu button {
+.myService_DichVu button, .myService_DichVuDaDK button {
   width: 40%;
-  float:inherit;
 }
 .myService_Delete,
 .myService_info {
@@ -207,15 +217,7 @@ body {
   border-radius: 15px;
   background-color: rgb(150, 150, 255);
 }
-.myService_Huy {
-  height: 30px;
-  margin: 10px;
-  padding: 7px;
-  font-size: 16px;
-  text-align: center;
-  border-radius: 15px;
-  background-color: rgb(150, 150, 255);
-}
+
 .action table {
   margin: 20px auto;
   width: 98%;

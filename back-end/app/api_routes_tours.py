@@ -65,25 +65,46 @@ def get_tour_details(tour_id):
 # handle tour registration
 @tour_routes.route('/tours/register_tour', methods=["POST"])
 def register_tour():
-    data = request.json
+    try:
+        data = request.json
 
-    registration = {
-        "tour_id": ObjectId(data["tour_id"]),
-        "name": data["name"],
-        "gender": data['gender'],
-        "birthday": data['birthday'],
-        "phone": data["phone"],
-        "email": data["email"],
-        "cccd": data["cccd"],
-        "address": data["address"],
-        "numPeople": int(data["numPeople"]),
-        "startDay": data['startDay']
-    }
+        registration = {
+            "tour_id": ObjectId(data["tour_id"]),
+            "name": data["name"],
+            "gender": data['gender'],
+            "birthday": data['birthday'],
+            "phone": data["phone"],
+            "email": data["email"],
+            "cccd": data["cccd"],
+            "address": data["address"],
+            "numPeople": int(data["numPeople"]),
+            "startDay": data['startDay']
+        }
 
-    # save data to mongoDB
-    registration_tours.insert_one(registration)
+        # save data to mongoDB
+        registration_tours.insert_one(registration)
 
-    return jsonify({"message": "Tour registered successfully"})
+        tour_id = data['tour_id']
+        user_id = data['user_id']
+
+        # save tour id to registered tours in users collection
+        users_collection.update_one(
+            {"_id": ObjectId(user_id), "registered_tours": {"$exists": False}},
+            {"$set": {"registered_tours": []}}
+        )
+        result = users_collection.update_one(
+            {"_id": ObjectId(user_id)},
+            {"$addToSet": {"registered_tours": tour_id}}
+        )
+
+        if (result.modified_count > 0 or result.upserted_id):
+            return jsonify({'success': 'Tour registered successfully'}), 200
+        else:
+            return jsonify({'message': 'Tour already registered'}), 200
+        
+    except Exception as e:
+        return jsonify({'message': str(e)}), 500
+
 
 # save tour
 @tour_routes.route('/tours/save_tour', methods=['POST'])
@@ -126,14 +147,49 @@ def get_saved_tours():
 
         user = users_collection.find_one({"_id": ObjectId(user_id)})
         tours_id = user['saved_tours']
-        saved_tours = []
+        if tours_id:
+            saved_tours = []
 
-        for tour_id in tours_id:
-            saved_tour = tours_collection.find_one({"_id": ObjectId(tour_id)})
-            saved_tour['_id'] = str(saved_tour['_id'])
-            saved_tours.append(saved_tour)
+            for tour_id in tours_id:
+                saved_tour = tours_collection.find_one({"_id": ObjectId(tour_id)})
+                saved_tour['_id'] = str(saved_tour['_id'])
+                saved_tours.append(saved_tour)
+        
+            return jsonify(saved_tours)
+        else:
+            return jsonify({'message': "Chua co tour nao duoc luu"}), 200
     
-        return jsonify(saved_tours)
+    except Exception as e:
+        return jsonify({'message': str(e)}), 500
+
+# get registered tours
+@tour_routes.route('/tours/get_registered_tours', methods=['GET'])
+def get_register_tours():
+    try:
+        user_id = request.args.get('user_id')
+
+        user = users_collection.find_one({'_id': ObjectId(user_id)})
+        registered_tours_id = user['registered_tours']
+
+        if registered_tours_id:
+            registered_tours = []
+
+            for tour_id in registered_tours_id:
+                registered_tour = registration_tours.find_one({'tour_id': ObjectId(tour_id)})
+                tour = tours_collection.find_one({'_id': ObjectId(tour_id)})
+
+                result = {}
+
+                result['startDate'] = registered_tour['startDay']
+                result['name'] = tour['name']
+                result['img'] = tour['img']
+                result['price'] = tour['price']
+
+                registered_tours.append(result)
+            
+            return jsonify(registered_tours)
+        else:
+            return jsonify({'_id': 'Chua co tour nao duoc dang ky'}), 200
     
     except Exception as e:
         return jsonify({'message': str(e)}), 500

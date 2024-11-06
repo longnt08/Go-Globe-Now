@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(tour => {
             document.getElementById("tourName").textContent = tour.name;
             document.getElementById("tourImage").src = tour.img;
-            document.getElementById("destination").textContent = tour.destination;
+            document.getElementById("destinations").textContent = tour.destinations;
             document.getElementById("maxPeople").textContent = tour.max_people;
             document.getElementById("price").textContent = tour.price;
 
@@ -29,7 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // handle form when user click register
   function register_tour() {
     const params = new URLSearchParams(window.location.search);
-    const tourId = params.get("tour_id");
+    const tour_id = params.get("tour_id");
+    const user_id = localStorage.getItem('user_id')
       // get data from form
       const registrationData = {
         name: document.getElementById("firstName").value + " " + document.getElementById("lastName").value,
@@ -41,18 +42,24 @@ document.addEventListener("DOMContentLoaded", () => {
         address: document.getElementById("address").value,
         numPeople: document.getElementById("numPeople").value,
         startDay: document.getElementById("startDay").value,
-        tour_id: tourId, // Gửi kèm tour_id để xác định tour
+        tour_id: tour_id, 
+        user_id: user_id
     };
     // send POST command to register
     fetch("http://127.0.0.1:5000/tours/register_tour", {
         method: "POST",
         headers: {"Content-type": "application/json"},
+        registrationData: 'include',
         body: JSON.stringify(registrationData)
     })
     .then(response => response.json())
     .then(data => {
-        alert("Registration successful");
-        window.location.href = "http://127.0.0.1:5500/front-end/tours.html";
+        if (data.success) {
+          alert(data.success);
+          window.location.href = "http://127.0.0.1:5500/front-end/tours.html";
+        } else {
+          alert(data.message);
+        }
     })
     .catch(error => console.error("Error registering tour:", error));
   }
