@@ -7,3 +7,11 @@ function openAndCloseMenu() {
     }
   }
   
+function check_login() {
+  if(!localStorage.getItem('username') || !localStorage.getItem('user_id')) {
+    alert('You are not log in. Please log in to your account');
+    window.location.href = 'http://127.0.0.1:5500/front-end/login.html'
+  } else {
+    window.location.href = 'http://127.0.0.1:5500/front-end/info.html';
+  }
+}

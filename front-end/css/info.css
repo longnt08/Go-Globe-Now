@@ -163,39 +163,41 @@ body {
   display: flex;
   flex-direction: row;
   padding: 0 20px;
-  overflow: auto;
+  /* overflow: auto; */
   gap: 10px;
   margin-bottom: 20px;
+  overflow-x: auto;
 }
 .myService_DichVu {
   width: 300px;
-  height: 400px;
+  height: 390px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  display: grid;
+  grid-template-rows: 10% 60% 5% 25%;
+}
+.myService_DichVu h3 {
+  padding-left: 10px;
+  margin: 5px;
 }
 .myService_DichVu img {
   width: 280px;
   height: 200px;
   margin: 10px;
+  border-radius: 10px;
 }
-.myService_TenDichVu {
-  height: 25px;
+.myService_DichVu p {
+  margin-top: 10px;
   font-size: 20px;
-  margin-left: 10px;
+  font-weight: bold;
 }
-.myService_ThongTinDichVu {
-  height: 105px;
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-  overflow: auto;
+.btn-container {
+  margin-top: 30px;
 }
-.myService_TuongTac {
-  height: 30px;
-  margin: 10px;
-  display: grid;
-  grid-template-columns: 3fr 7fr;
-  gap: 10px;
+.myService_DichVu button {
+  width: 40%;
+  float:inherit;
 }
 .myService_Delete,
 .myService_info {

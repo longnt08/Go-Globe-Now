@@ -5,31 +5,31 @@ function toggleSidebar() {
 
 // create tour
 function createTour(tour) {
-  // Tạo div cho từng sản phẩm
+  // Tạo div cho từng tour
   const tourDiv = document.createElement("div");
   tourDiv.classList.add("tour");
 
-  // Tạo thẻ img cho hình ảnh sản phẩm
+  // Tạo thẻ img cho hình ảnh tour
   const img = document.createElement("img");
   img.src = tour.img;
   img.alt = tour.name;
 
-  // Tạo thẻ h3 cho tên sản phẩm
+  // Tạo thẻ h3 cho tên tour
   const name = document.createElement("h3");
   name.textContent = tour.name;
 
-  // Tạo thẻ p cho giá sản phẩm
+  // Tạo thẻ p cho giá tour
   const price = document.createElement("p");
   price.textContent = `Giá: ${tour.price}`;
 
-  // Thêm các thành phần vào div sản phẩm
+  // Thêm các thành phần vào div tour
   tourDiv.appendChild(img);
   tourDiv.appendChild(name);
   tourDiv.appendChild(price);
 
   // Thêm nút đăng ký tour
   const registerBtn = document.createElement("button");
-  registerBtn.textContent = "Dang ky";
+  registerBtn.textContent = "Đăng ký";
   registerBtn.classList.add("register-btn");
   registerBtn.onclick = () => {
     window.location.href = `http://127.0.0.1:5500/front-end/tour_payment.html?tour_id=${tour._id}`;
@@ -37,7 +37,7 @@ function createTour(tour) {
 
   // Them nut luu tour
   const saveBtn = document.createElement("button");
-  saveBtn.textContent = "Luu tour";
+  saveBtn.textContent = "Lưu tour";
   saveBtn.classList.add("save-btn");
   saveBtn.onclick = () => {
     saveTour(tour._id);
@@ -107,19 +107,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Ham luu tour
 function saveTour(tourId) {
+
+  data = {
+    user_id: localStorage.getItem('user_id'),
+    tour_id: tourId
+  }
+
   fetch(`http://127.0.0.1:5000/tours/save_tour`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ tour_id: tourId }),
+    data: 'include',
+    body: JSON.stringify(data),
   })
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
         alert("Tour is saved successfully");
       } else {
-        alert("Can't save tour");
+        alert(data.message);
       }
     })
     .catch((error) => console.error("Loi khi luu tour:", error));

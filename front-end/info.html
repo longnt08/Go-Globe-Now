@@ -78,10 +78,11 @@
               <img
                 src="https://cdn-icons-png.flaticon.com/512/320/320140.png"
               />
-              <div class="myOption_span"><span>Đăng xuất</span></div>
+              <div id="logoutBtn" class="myOption_span" onclick="logout()"><span>Đăng xuất</span></div>
             </div>
           </div>
         </div>
+
         <div class="action">
           <div class="All">
             <div class="myCoin">
@@ -122,36 +123,32 @@
                 </div>
                 <div class="myCoin_serviceName">
                   <img
-                    src="https://openclipart.org/image/2400px/svg_to_png/303239/1529044396.png"
-                  />
+                    src="https://openclipart.org/image/2400px/svg_to_png/303239/1529044396.png"/>
                   <div>Giao thông</div>
                 </div>
                 <div class="myCoin_serviceName">
                   <img
-                    src="https://png.pngtree.com/png-clipart/20221029/original/pngtree-beauty-logo-png-image_8742064.png"
-                  />
+                    src="https://png.pngtree.com/png-clipart/20221029/original/pngtree-beauty-logo-png-image_8742064.png"/>
                   <div>Thể thao - làm đẹp</div>
                 </div>
                 <div class="myCoin_serviceName">
                   <img
-                    src="https://cdn.pixabay.com/photo/2017/05/15/23/44/heart-icon-2316451_1280.png"
-                  />
+                    src="https://cdn.pixabay.com/photo/2017/05/15/23/44/heart-icon-2316451_1280.png"/>
                   <div>Y tế - Bảo Hiểm</div>
                 </div>
                 <div class="myCoin_serviceName">
                   <img
-                    src="https://dulichbacha.net/wp-content/uploads/2017/11/travel-icon-png-25.png"
-                  />
+                    src="https://dulichbacha.net/wp-content/uploads/2017/11/travel-icon-png-25.png"/>
                   <div>Du lịch</div>
                 </div>
                 <div class="myCoin_serviceName">
                   <img
-                    src="https://thehevang.vn/wp-content/uploads/2016/04/gia-dinh-ba-the-he.png"
-                  />
+                    src="https://thehevang.vn/wp-content/uploads/2016/04/gia-dinh-ba-the-he.png"/>
                   <div>Khác ...</div>
                 </div>
               </div>
             </div>
+
             <div class="mybank">
               <div class="mybank_name">
                 <h2>MB BANK</h2>
@@ -160,104 +157,24 @@
               </div>
               <div class="mybank_add">+</div>
             </div>
+
             <div class="myService">
+
               <div class="myService_DaLuu">
                 <div class="myService_TieuDe">
                   <div class="myService_TenTieuDe">Đã lưu</div>
                 </div>
-                <div class="myService_CacDichVu">
-                  <div class="myService_DichVu">
-                    <img
-                      src="https://carshop.vn/wp-content/uploads/2022/07/xe-vung-tau-bien-hoa-dong-nai-5.jpg"
-                    />
-                    <div class="myService_TenDichVu">
-                      Xe thương gia (Hà Nội-Sài Gòn)
-                    </div>
-                    <div class="myService_ThongTinDichVu">
-                      <span>- Số chỗ: 16 chỗ</span>
-                      <span
-                        >- Đánh giá chung: Xe sạch sẽ, vui tính, thân
-                        thiện,...</span
-                      >
-                    </div>
-                    <div class="myService_TuongTac">
-                      <div class="myService_Delete">Xóa</div>
-                      <div class="myService_info">Xem chi tiết</div>
-                    </div>
-                  </div>
-                  <div class="myService_DichVu">
-                    <img
-                      src="https://img5.thuthuatphanmem.vn/uploads/2021/07/15/anh-dep-con-dao_025704729.png"
-                    />
-                    <div class="myService_TenDichVu">Côn Đảo</div>
-                    <div class="myService_ThongTinDichVu">
-                      <span
-                        >- Giới thiệu: Nếu bạn muốn tìm một nơi để hòa mình với
-                        thiên nhiên, một nơi xả đi những thứ mệt mỏi của cuộc
-                        sống mệt mỏi, bạn có thể nghĩ đến CÔN ĐẢO</span
-                      >
-                      <span
-                        >- Thể loại: Du lịch bãi biển, đảo; Di tích lịch sử;
-                        ...</span
-                      >
-                      <span
-                        >- Đánh giá chung: Xả stress cực mọi người ơi, nếu có
-                        tiền thì mik đã đi :))</span
-                      >
-                    </div>
-                    <div class="myService_TuongTac">
-                      <div class="myService_Delete">Xóa</div>
-                      <div class="myService_info">Xem chi tiết</div>
-                    </div>
-                  </div>
-                </div>
+                <div class="myService_CacDichVu" id="myService_CacDichVu"></div>
               </div>
-              <div class="myService_DaLuu">
+
+              <div class="myService_DaDangKy">
                 <div class="myService_TieuDe">
                   <div class="myService_TenTieuDe">Đã đăng ký</div>
                 </div>
-                <div class="myService_CacDichVu">
-                  <div class="myService_DichVu">
-                    <img
-                      src="https://carshop.vn/wp-content/uploads/2022/07/xe-vung-tau-bien-hoa-dong-nai-5.jpg"
-                    />
-                    <div class="myService_TenDichVu">
-                      Xe thương gia (Hà Nội-Sài Gòn)
-                    </div>
-                    <div class="myService_ThongTinDichVu">
-                      <span>- Số chỗ: 16 chỗ</span>
-                      <span
-                        >- Đánh giá chung: Xe sạch sẽ, vui tính, thân
-                        thiện,...</span
-                      >
-                    </div>
-                    <div class="myService_Huy">Hủy</div>
-                  </div>
-                  <div class="myService_DichVu">
-                    <img
-                      src="https://img5.thuthuatphanmem.vn/uploads/2021/07/15/anh-dep-con-dao_025704729.png"
-                    />
-                    <div class="myService_TenDichVu">Côn Đảo</div>
-                    <div class="myService_ThongTinDichVu">
-                      <span
-                        >- Giới thiệu: Nếu bạn muốn tìm một nơi để hòa mình với
-                        thiên nhiên, một nơi xả đi những thứ mệt mỏi của cuộc
-                        sống mệt mỏi, bạn có thể nghĩ đến CÔN ĐẢO</span
-                      >
-                      <span
-                        >- Thể loại: Du lịch bãi biển, đảo; Di tích lịch sử;
-                        ...</span
-                      >
-                      <span
-                        >- Đánh giá chung: Xả stress cực mọi người ơi, nếu có
-                        tiền thì mik đã đi :))</span
-                      >
-                    </div>
-                    <div class="myService_Huy">Hủy</div>
-                  </div>
-                </div>
               </div>
+
             </div>
+
             <div class="myHistory">
               <table>
                 <thead>
@@ -294,6 +211,7 @@
                 </tbody>
               </table>
             </div>
+
             <div class="myRefund">
               <table>
                 <thead>
@@ -330,6 +248,7 @@
                 </tbody>
               </table>
             </div>
+
             <div class="Notification">
               <div class="announcement">
                 <div class="announcement_TieuDe">
@@ -345,17 +264,14 @@
                     <div>Admin</div>
                     <div>
                       Dịch vụ
-                      <span style="font-weight: 900"
-                        >Xe Phiệt Học (Bắc-Nam)</span
-                      >
+                      <span style="font-weight: 900">Xe Phiệt Học (Bắc-Nam)</span>
                       đã đăng ký thành công
                     </div>
                   </div>
                 </div>
                 <div class="announcement_ThongBao">
                   <img
-                    src="https://static.vecteezy.com/system/resources/previews/006/487/917/original/man-avatar-icon-free-vector.jpg"
-                  />
+                    src="https://static.vecteezy.com/system/resources/previews/006/487/917/original/man-avatar-icon-free-vector.jpg"/>
                   <div class="announcement_ThongBao_info">
                     <div>Admin</div>
                     <div>
@@ -378,6 +294,7 @@
                 </div>
               </div>
             </div>
+
             <div class="mySetting">
               <div class="mySetting_TieuDe">
                 <div class="mySetting_TenTieuDe">Thông tin cá nhân</div>
@@ -395,12 +312,8 @@
                   <div class="infoSex_input">
                     <label>Giới tính</label>
                     <div class="text infoSex">
-                      <input type="radio" name="Sex" value="nam" /><span
-                        >Nam</span
-                      >
-                      <input type="radio" name="Sex" value="nữ" /><span
-                        >Nữ</span
-                      >
+                      <input type="radio" name="Sex" value="nam" /><span>Nam</span>
+                      <input type="radio" name="Sex" value="nữ" /><span>Nữ</span>
                     </div>
                   </div>
                   <div class="infoBirthday_input">
@@ -414,8 +327,7 @@
                       type="tel"
                       id="phone"
                       name="phone"
-                      value="0123456789"
-                    />
+                      value="0123456789"/>
                   </div>
                   <div class="infoEmail">
                     <label for="email">Email</label>
@@ -428,8 +340,7 @@
                     class="text"
                     type="text"
                     id="address"
-                    placeholder="Nhà số 1 ngõ 2/3 quận A Hà Nội"
-                  />
+                    placeholder="Nhà số 1 ngõ 2/3 quận A Hà Nội"/>
                 </div>
                 <button type="button">Lưu những thay đổi</button>
               </form>
@@ -445,12 +356,13 @@
               </div>
               <div class="infoAccount_add">+ Add more</div>
             </div>
+
           </div>
         </div>
       </div>
     </div>
     <script src="./js/info.js"></script>
     <script src="./js/info_tag.js"></script>
-    <script src="./js/api_info_load.js"></script>
+    <!-- <script src="./js/api_info_load.js"></script> -->
   </body>
 </html>

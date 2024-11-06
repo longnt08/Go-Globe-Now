@@ -82,20 +82,11 @@ def register():
                         "user_id": str(result.inserted_id),
                         "login_url": "http://127.0.0.1:5500/front-end/login.html"}), 201
 
-        # This "return jsonify()" is the final result (namely data) after successfully
-        # executing the register() function.
-
-        # Inside which there is a "login_url" json key that JavaScript could fetch the value from.
-
-        # The URL to the login.html must be like shown (copied straight from the browser
-        # where VS Code is showing the preview, and it's on another port, different from
-        # the server port)
-
     except Exception as e:
         return jsonify({"message": str(e)}), 500
 
 # đăng nhập người dùng
-@user_routes.route('/users/login', methods = ['GET', 'POST'])
+@user_routes.route('/users/login', methods = ['POST'])
 def login():
     try:
         credentials = request.get_json()
@@ -123,21 +114,15 @@ def login():
         return jsonify({"message": str(e)}), 500
 
 # đăng xuất người dùng
-@user_routes.route('/users/logout', methods = ['POST'])
+@user_routes.route('/users/logout', methods = ['GET'])
 def logout():
     try:
         session.clear()
         return jsonify({"message": "Log out successful"}), 200
     except Exception as e:
         return jsonify({"message": str(e)}), 500
-
-@user_routes.route('/users/profile', methods = ['GET'])
-def profile():
-    if "user_id" in session:
-        return jsonify({"message": "User is logged in", "user_id": session["user_id"]}), 200
-    else:
-        return jsonify({"message": "User not logged in."}), 401
     
+# cập nhật thông tin người dùng
 @user_routes.route('/users/<user_id>', methods=['PUT'])
 def update_user(user_id):
     # Kiểm tra xem người dùng có tồn tại không
@@ -158,17 +143,6 @@ def update_user(user_id):
     updated_user = users_collection.find_one({"_id": ObjectId(user_id)})
     return jsonify({"message": "User updated", "user": updated_user}), 200
 
-
-# @user_routes.route('/users/get_all', methods=['GET'])
-# def get_users():
-#     users = list(users_collection.find({}))
-#     for user in users:
-#         user['_id'] = str(user['_id']) 
-#         for key, value in user.items():
-#             if isinstance(value, bytes):
-#                 user[key] = value.decode('utf-8')
-#     print(f"Users: {users}")  
-#     return jsonify(users), 200
 
 # cập nhật thông tin người dùng
 @user_routes.route('/users/update_user', methods=['POST'])

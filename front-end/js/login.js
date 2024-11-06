@@ -25,19 +25,25 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             console.log(data); // Kiểm tra phản hồi từ server
-            if (data.message) {
+            if (data.message === "Login successful") {
                 alert(data.message); // Hiển thị thông báo cho người dùng
                 if (data.user_id) {
                     // luu username vao localStorage
                     localStorage.setItem('username', data.username);
-                    // chuyen huong den trang chu
-                    window.location.href = 'http://127.0.0.1:5500/front-end/info.html';
+                    localStorage.setItem('user_id', data.user_id);
+                    console.log("Redirecting to info page...");
+                    window.location.assign = 'http://127.0.0.1:5500/front-end/info.html';
                 }
             }
         })
         .catch(error => {
-            console.error('Error:', error);
-            alert('Đã xảy ra lỗi trong quá trình đăng nhập. Vui lòng thử lại!');
+            if (error.message.includes('401')) {
+                console.error('Unauthorized access - Check credentials or CORS settings');
+                alert('Failed to login');
+            } else {
+                console.error('Error:', error);
+                alert('Đã xảy ra lỗi trong quá trình đăng nhập. Vui lòng thử lại!');
+            }
         });
     });
 });
