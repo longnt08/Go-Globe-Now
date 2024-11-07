@@ -24,6 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => console.error("Error fetching tour details: ", error));
     }
+
+    if (!localStorage.getItem('user_id')) {
+      alert('You are not login. Please login and try again');
+      // return;
+    }
 })
 
     // handle form when user click register

@@ -123,38 +123,35 @@ def logout():
         return jsonify({"message": str(e)}), 500
     
 # cập nhật thông tin người dùng
-@user_routes.route('/users/<user_id>', methods=['PUT'])
-def update_user(user_id):
-    # Kiểm tra xem người dùng có tồn tại không
-    user = users_collection.find_one({"_id": ObjectId(user_id)})  # Sử dụng ObjectId để tìm
-    if user is None:
-        return jsonify({"message": "User not found"}), 404
-    
-    # Lấy dữ liệu từ yêu cầu
-    data = request.get_json()
+@user_routes.route('/users/update_user', methods=['PUT'])
+def update_user():
+    try:
+        changed_info = request.get_json()
 
-    # Cập nhật thông tin người dùng
-    if 'name' in data:
-        users_collection.update_one({"_id": ObjectId(user_id)}, {"$set": {"name": data['name']}})
-    if 'email' in data:
-        users_collection.update_one({"_id": ObjectId(user_id)}, {"$set": {"email": data['email']}})
+        user_id = changed_info['user_id']
 
-    # Lấy thông tin người dùng đã cập nhật
-    updated_user = users_collection.find_one({"_id": ObjectId(user_id)})
-    return jsonify({"message": "User updated", "user": updated_user}), 200
+        update_fields = {
+            "first_name": changed_info.get('first_name'),
+            "last_name": changed_info.get('last_name'),
+            "gender": changed_info.get('gender'),
+            "dob": changed_info.get('birthday'),
+            "phone": changed_info.get('phone'),
+            "email": changed_info.get('email'),
+            "address": changed_info.get('address')
+        }
 
+        result = users_collection.update_one(
+            {'_id': ObjectId(user_id)},
+            {'$set': update_fields}
+        )
 
-# cập nhật thông tin người dùng
-@user_routes.route('/users/update_user', methods=['POST'])
-def add_user():
-    data = request.get_json()  # Nhận dữ liệu từ yêu cầu
-    new_user = {
-        "name": data['name'],
-        "email": data['email'],
-    }
-    users_collection.insert_one(new_user)  # Thêm người dùng mới vào collection
-    new_user['_id'] = str(new_user['_id'])  # Chuyển đổi ObjectId thành chuỗi để trả về
-    return jsonify({"message": "User added", "user": new_user}), 201
+        if result.modified_count > 0:
+            return jsonify({'success': 'User updated successfully'}), 200
+        else:
+            return jsonify({'message': 'Some thing went wrong, please check your change info'}), 400
+    except Exception as e:
+        return jsonify({'message': str(e)}), 500
+
 
 # lấy thông tin một người dùng
 @user_routes.route('/users/<id>', methods=['GET'])

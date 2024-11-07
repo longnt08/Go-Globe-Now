@@ -62,7 +62,7 @@ def get_tour_details(tour_id):
     else:
         return jsonify({"error": "Tour not found"}), 404
     
-# handle tour registration
+# register tour
 @tour_routes.route('/tours/register_tour', methods=["POST"])
 def register_tour():
     try:
@@ -97,7 +97,11 @@ def register_tour():
             {"$addToSet": {"registered_tours": tour_id}}
         )
 
-        if (result.modified_count > 0 or result.upserted_id):
+        if result.modified_count > 0 or result.upserted_id:
+            users_collection.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$pull": {"saved_tours": tour_id}}  # Xóa tour_id khỏi saved_tours nếu tồn tại
+            )
             return jsonify({'success': 'Tour registered successfully'}), 200
         else:
             return jsonify({'message': 'Tour already registered'}), 200
@@ -191,5 +195,30 @@ def get_register_tours():
         else:
             return jsonify({'_id': 'Chua co tour nao duoc dang ky'}), 200
     
+    except Exception as e:
+        return jsonify({'message': str(e)}), 500
+    
+#delete tour 
+@tour_routes.route('/tours/delete_saved_tour', methods=['PUT'])
+def delete_saved_tour():
+    try:
+        id_data = request.get_json()
+
+        if 'user_id' not in id_data or 'tour_id' not in id_data:
+            return jsonify({'message': 'Invalid input'}), 400
+
+        user_id = id_data['user_id']
+        tour_id = id_data['tour_id']
+
+        result = users_collection.update_one(
+            {"_id": ObjectId(user_id)},
+            {"$pull": {"saved_tours": tour_id}}
+        )
+
+        if result.modified_count > 0:
+            return jsonify({'success': 'Tour has been removed successfully'}), 200
+        else:
+            return jsonify({'message': 'Something went wrong'}), 404
+
     except Exception as e:
         return jsonify({'message': str(e)}), 500

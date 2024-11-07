@@ -2,7 +2,7 @@ let tag = document.getElementsByClassName("myOption");
 let ChiMuc = 2;
 All.setAttribute(
   "style",
-  `top: 0px; left: ${-ChiMuc * (window.innerWidth - 460)}px;`
+  `top: 0px; left: ${-ChiMuc * 2000}px;`
 );
 for (let i = 0; i < tag.length; i++) {
   tag[i].onclick = function (e) {
@@ -11,7 +11,7 @@ for (let i = 0; i < tag.length; i++) {
     ChiMuc = i;
     All.setAttribute(
       "style",
-      `top: 0px; left: ${-i * (window.innerWidth - 460)}px;`
+      `top: 0px; left: ${-i * 2000}px;`
     );
   };
 }

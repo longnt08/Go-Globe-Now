@@ -3,7 +3,7 @@ function toggleSidebar() {
   sidebar.classList.toggle("open");
 }
 
-// create tour
+// hàm tạo tour
 function createTour(tour) {
   // Tạo div cho từng tour
   const tourDiv = document.createElement("div");
@@ -66,9 +66,10 @@ function showAllTours() {
     .catch((error) => console.error("Error fetching tours:", error));
 }
 
-// filter tour
-function applyFilter() {
-  
+// loc tour
+document.getElementById('filterBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+
   const minPrice = document.getElementById("min_price").value;
   const maxPrice = document.getElementById("max_price").value;
   const category = document.getElementById("category").value;
@@ -76,7 +77,7 @@ function applyFilter() {
  
   showFilteredTours(minPrice, maxPrice, category);
   window.location.hash = `#min_price=${minPrice}&max_price=${maxPrice}&category=${category}`;
-}
+})
 
 // show filtered tours
 function showFilteredTours(
@@ -108,6 +109,13 @@ document.addEventListener("DOMContentLoaded", function () {
 // Ham luu tour
 function saveTour(tourId) {
 
+  if (!localStorage.getItem('user_id')) {
+    alert('You are not login. Please login and try again');
+    return;
+  }
+
+  localStorage.setItem('saved_tour_id', tourId)
+  
   data = {
     user_id: localStorage.getItem('user_id'),
     tour_id: tourId
@@ -127,6 +135,7 @@ function saveTour(tourId) {
         alert("Tour is saved successfully");
       } else {
         alert(data.message);
+        localStorage.removeItem('saved_tour_id');
       }
     })
     .catch((error) => console.error("Loi khi luu tour:", error));

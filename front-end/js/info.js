@@ -3,9 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
   if (username) {
       document.getElementById("username").textContent = username;
   } else {
-      alert("User not logged in. Redirecting to login page.");
+      alert("User not logged in");
   }
 });
+
+document.getElementById('loginBtn').addEventListener("click", function () {
+  window.location.href = 'http://127.0.0.1:5500/front-end/login.html'
+})
 
 let accounts = document.querySelector(".accounts");
 let option = document.querySelector(".option");
@@ -23,7 +27,7 @@ for (let i = 0; i < Menu.length; i++) {
     "style",
     `width: ${window.innerWidth - 460}px; height: ${
       window.innerHeight - 150
-    }px; left: ${i * (window.innerWidth - 460)}px;`
+    }px;`
   );
 }
 window.addEventListener("resize", function () {
@@ -37,13 +41,9 @@ window.addEventListener("resize", function () {
       "style",
       `width: ${window.innerWidth - 460}px; height: ${
         window.innerHeight - 150
-      }px; left: ${i * (window.innerWidth - 460)}px;`
+      }px; `
     );
   }
-  All.setAttribute(
-    "style",
-    `top: 0px; left: ${-ChiMuc * (window.innerWidth - 460)}px;`
-  );
 });
 
 // chức năng log out
@@ -73,6 +73,49 @@ async function logout() {
     alert('An error occurred. Please try again');
   }
 }
+
+// update user info
+document.getElementById('saveChange').addEventListener('click', (e) => {
+  e.preventDefault();
+  
+  const user_id = localStorage.getItem('user_id');
+
+  let dob = document.querySelector('input[name="dob"]').value;
+  if (dob) {
+    const [year, month, day] = dob.split("-");
+    dob = `${day}-${month}-${year}`;
+  }
+
+  const changed_info = {
+    first_name: document.getElementById('firstName').value,
+    last_name: document.getElementById('lastName').value,
+    gender: document.querySelector('select[name="gender"]').value,
+    birthday: dob,
+    phone: document.getElementById('phone').value,
+    email: document.getElementById('email').value,
+    address: document.getElementById('address').value,
+    user_id: user_id
+  };
+
+  fetch('http://127.0.0.1:5000/users/update_user', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    // credentials: 'include',
+    body: JSON.stringify(changed_info)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    if (data.success) {
+      alert("User updated successfully");
+    } else {
+      alert(data.message);
+    }
+  })
+  .catch(error => console.error("Failed to update user info:", error));
+})
 
 // show saved tours
 function showSavedTours() {
@@ -113,7 +156,7 @@ function showSavedTours() {
         deleteBtn.textContent = "Xóa";
         deleteBtn.classList.add("myService_Delete");
         deleteBtn.onclick = () => {
-          delete_from_info(tour._id);
+          delete_saved_tour();
         }
 
         // them nut dang ky
@@ -208,6 +251,37 @@ function showRegisteredTours () {
   })
   .catch((error) => console.error("Error fetching tours:", error));
 }
+
+// xoa tour khoi muc da luu
+function delete_saved_tour() {
+
+  const user_id = localStorage.getItem('user_id');
+  const tour_id = localStorage.getItem('saved_tour_id');
+
+  const id_data = {
+    tour_id: tour_id,
+    user_id: user_id
+  }
+
+  fetch('http://127.0.0.1:5000/tours/delete_saved_tour', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(id_data)
+  })
+  .then(response => response.json())
+  .then(data => {
+      if (data.success) {
+        alert(data.success);
+        window.location.href = 'http://127.0.0.1:5500/front-end/info.html'
+      } else {
+        alert(data.message);
+      }
+  })
+  .catch(error => console.error('Error:', error));
+}
+
 
 document.addEventListener("DOMContentLoaded", function () {
   showSavedTours();
