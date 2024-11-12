@@ -100,8 +100,6 @@ def login():
         user = users_collection.find_one({"username": username})
 
         if user and bcrypt.checkpw(password.encode('utf-8'), user["password"]):
-            session["user_id"] = str(user["_id"])
-            session["username"] = user["username"]
             return jsonify({
                 "message": "Login successful", 
                 "user_id": str(user["_id"]),

@@ -26,9 +26,7 @@ function login()  {
             // luu username vao localStorage
             localStorage.setItem('username', data.username);
             localStorage.setItem('user_id', data.user_id);
-            console.log("Redirecting to info page...");
-            window.location.href = 'http://127.0.0.1:5500/front-end/info.html?#';
-
+            window.location.href = 'http://127.0.0.1:5500/front-end/info.html';
         } else {
             alert('Invalid username or password');
         }
