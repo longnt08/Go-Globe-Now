@@ -21,7 +21,7 @@ Ensure you have the following installed:
 - MongoDB
 ### **Steps**
 1. Clone the repository<br>
-   ```git clone https://github.com/your-username/Go-Globe-Now.git```<br>
+   ```git clone https://github.com/longnt08/Go-Globe-Now.git```<br>
     ```cd Go-Globe-Now```<br>
 2. Set up a virtual environment (optional but recommended)<br>
   ```python3 -m venv venv```<br>
