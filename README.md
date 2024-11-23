@@ -7,11 +7,11 @@ Welcome to **Go-Globe-Now**, a travel project designed to help users explore and
 - **User authentication**: Register, log in, and manage your profile.
 - **Responsive Design**: Optimized for desktop and mobile devices.
 ## **Technologies Used**
--**Back-End**:
+- **Back-End**:
   -Flask (Python 3.8)
   -MongoDB for database management
   RESTful API for modular and scalable architecture
--**Front-End**:
+- **Front-End**:
   -HTML, CSS, JavaScript
 ## **Installation**
 ### **Prerequisites**
