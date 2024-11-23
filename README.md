@@ -8,11 +8,11 @@ Welcome to **Go-Globe-Now**, a travel project designed to help users explore and
 - **Responsive Design**: Optimized for desktop and mobile devices.
 ## **Technologies Used**
 - **Back-End**:
-  -Flask (Python 3.8)
-  -MongoDB for database management
-  RESTful API for modular and scalable architecture
+  - Flask (Python 3.8)
+  - MongoDB for database management
+  - RESTful API for modular and scalable architecture
 - **Front-End**:
-  -HTML, CSS, JavaScript
+  - HTML, CSS, JavaScript
 ## **Installation**
 ### **Prerequisites**
 Ensure you have the following installed:
