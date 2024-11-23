@@ -16,9 +16,9 @@ Welcome to **Go-Globe-Now**, a travel project designed to help users explore and
 ## **Installation**
 ### **Prerequisites**
 Ensure you have the following installed:
--Python 3.8
--Pip
--MongoDB
+- Python 3.8
+- Pip
+- MongoDB
 ### **Steps**
 1. Clone the repository<br>
    ```git clone https://github.com/your-username/Go-Globe-Now.git```<br>
@@ -29,7 +29,7 @@ Ensure you have the following installed:
   ```venv\Scripts\activate     # Windows```<br>
 3. Install dependencies<br>
    ```pip install -r requirements.txt```<br>
-4. Set up Database<br>
+4. Set up Database
   - Start your MongoDB server
   - Update the database configuration in the config.py file (if necessary)
 5. Run the Application<br>
