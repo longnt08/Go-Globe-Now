@@ -7,7 +7,7 @@ from flask_session import Session
 
 def create_app():
     app = Flask(__name__)
-    app.secret_key = "e38a247a9d69d5e2a3300ef93dfadbbd8a25994af9cba660db61b523e37b71b7"
+    app.secret_key = ""
 
     app.config["SESSION_TYPE"] = "filesystem"
     app.config['SESSION_PERMANENT'] = False
