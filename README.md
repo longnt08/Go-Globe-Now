@@ -20,23 +20,23 @@ Ensure you have the following installed:
 -Pip
 -MongoDB
 ### **Steps**
-1. Clone the repository
+###1. Clone the repository
    ```
    git clone https://github.com/your-username/Go-Globe-Now.git
     cd Go-Globe-Now
   ```
-2. Set up a virtual environment (optional but recommended)
+###2. Set up a virtual environment (optional but recommended)
   ```
   python3 -m venv venv
   source venv/bin/activate  # macOS/Linux
   venv\Scripts\activate     # Windows
   ```
-3. Install dependencies
+###3. Install dependencies
    ```
     pip install -r requirements.txt
   ```
-4. Set up Database
+###4. Set up Database
   - Start your MongoDB server
   - Update the database configuration in the config.py file (if necessary)
-5. Run the Application
+###5. Run the Application
 ``` python run.py ```
