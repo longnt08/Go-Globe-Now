@@ -51,7 +51,7 @@ function createTour(tour) {
 
 // show all tours
 function showAllTours() {
-  fetch("http://127.0.0.1:5000/tours")
+  fetch("http://127.0.0.1:3000/tours")
     .then((response) => response.json())
     .then((tours) => {
       const tourList = document.getElementById("tourList");
@@ -86,7 +86,7 @@ function showFilteredTours(
   category = "all"
 ) {
   fetch(
-    `http://127.0.0.1:5000/tours/filter_tours?min_price=${minPrice}&max_price=${maxPrice}&category=${category}`
+    `http://127.0.0.1:3000/tours/filter_tours?min_price=${minPrice}&max_price=${maxPrice}&category=${category}`
   )
     .then((response) => response.json())
     .then((tours) => {
@@ -121,7 +121,7 @@ function saveTour(tourId) {
     tour_id: tourId
   }
 
-  fetch(`http://127.0.0.1:5000/tours/save_tour`, {
+  fetch(`http://127.0.0.1:3000/tours/save_tour`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

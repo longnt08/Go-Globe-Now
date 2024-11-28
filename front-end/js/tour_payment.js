@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tourId = params.get("tour_id");
 
     if(tourId) {
-        fetch(`http://127.0.0.1:5000/tours/${tourId}`)
+        fetch(`http://127.0.0.1:3000/tours/${tourId}`)
         .then(response => response.json())
         .then(tour => {
             document.getElementById("tourName").textContent = tour.name;
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         user_id: user_id
     };
     // send POST command to register
-    fetch("http://127.0.0.1:5000/tours/register_tour", {
+    fetch("http://127.0.0.1:3000/tours/register_tour", {
         method: "POST",
         headers: {"Content-type": "application/json"},
         registrationData: 'include',

@@ -54,7 +54,7 @@ async function logout() {
   }
 
   try {
-    const response = await fetch('http://127.0.0.1:5000/users/logout')
+    const response = await fetch('http://127.0.0.1:3001/users/logout')
 
     if (!response) throw new Error('Logout failed');
 
@@ -97,7 +97,7 @@ document.getElementById('saveChange').addEventListener('click', (e) => {
     user_id: user_id
   };
 
-  fetch('http://127.0.0.1:5000/users/update_user', {
+  fetch('http://127.0.0.1:3001/users/update_user', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -121,7 +121,7 @@ document.getElementById('saveChange').addEventListener('click', (e) => {
 function showSavedTours() {
   user_id = localStorage.getItem('user_id');
 
-  fetch(`http://127.0.0.1:5000/tours/get_saved_tours?user_id=${user_id}`, {
+  fetch(`http://127.0.0.1:3000/tours/get_saved_tours?user_id=${user_id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -263,7 +263,7 @@ function delete_saved_tour() {
     user_id: user_id
   }
 
-  fetch('http://127.0.0.1:5000/tours/delete_saved_tour', {
+  fetch('http://127.0.0.1:3000/tours/delete_saved_tour', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'

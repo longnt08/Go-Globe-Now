@@ -4,7 +4,7 @@ from bson import ObjectId
 
 get_tour_blueprint = Blueprint('get_tour', __name__)
 
-db = get_tour_db
+db = get_tour_db()
 tours_collection = db['available_tours']
 
 # get tour details

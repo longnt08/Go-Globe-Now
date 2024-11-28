@@ -6,7 +6,7 @@ function login()  {
         password: document.querySelector('input[name="password"]').value
     };
 
-    fetch('http://127.0.0.1:5000/users/login', {
+    fetch('http://127.0.0.1:3001/users/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

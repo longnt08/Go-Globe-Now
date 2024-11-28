@@ -21,7 +21,7 @@ document.querySelector('.signup-button').addEventListener('click', function (e) 
 
     console.log("User Data:", userData);
 
-    fetch('http://127.0.0.1:5000/users/register', {
+    fetch('http://127.0.0.1:3001/users/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
