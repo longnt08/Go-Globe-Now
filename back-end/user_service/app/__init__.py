@@ -2,6 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_session import Session
 from dotenv import load_dotenv
+from redis import Redis
 import os
 
 load_dotenv()
@@ -12,9 +13,12 @@ def create_app():
     app.secret_key = os.getenv('SECRET_KEY')
 
     # cau hinh Session
-    app.config["SESSION_TYPE"] = 'filesystem'
+    app.config["SESSION_TYPE"] = 'redis'
     app.config['SESSION_PERMANENT'] = False
     app.config['SESSION_USE_SIGNER'] = True
+    app.config['SESSION_COOKIE_NAME'] = 'session'
+    app.config['SESSION_COOKIE_HTTPONLY'] = True
+    app.config['SESSION_REDIS'] = Redis(host='localhost', port=6379, db=0)
     Session(app)
 
     # cau hinh CORS

@@ -1,6 +1,9 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, session
 from app.db import get_db
 import bcrypt
+from dotenv import load_dotenv
+
+load_dotenv()
 
 db = get_db()
 users_collection = db['users']
@@ -21,11 +24,19 @@ def login():
         user = users_collection.find_one({"username": username})
 
         if user and bcrypt.checkpw(password.encode('utf-8'), user["password"]):
+            # save id, username into session
+            session['user'] = {
+                'user_id': str(user['_id']),
+                'username': user['username']
+            }
+            # mark as logged in
+            session['is_logged_in'] = True
+
+            print('session data after login:', session)
+
             return jsonify({
                 "message": "Login successful", 
-                "user_id": str(user["_id"]),
-                "username": user['username']
-                })
+                }), 200
         else:
             return jsonify({"message": "Invalid username or password"}), 401
 

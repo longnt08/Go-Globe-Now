@@ -1,16 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const username = localStorage.getItem('username');
-  if (username) {
-      document.getElementById("username").textContent = username;
-  } else {
-      alert("User not logged in");
-  }
-});
-
-document.getElementById('loginBtn').addEventListener("click", function () {
-  window.location.href = 'http://127.0.0.1:5500/front-end/login.html'
-})
-
 let accounts = document.querySelector(".accounts");
 let option = document.querySelector(".option");
 let action = document.querySelector(".action");
@@ -46,31 +33,53 @@ window.addEventListener("resize", function () {
   }
 });
 
+// lay thong tin 
+document.addEventListener("DOMContentLoaded", async function () {
+  try {
+
+    const response = await fetch('http://127.0.0.1:3001/users/profile');
+
+    if(!response.ok) {
+      throw new Error(`HTTP error: Status: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+
+    console.log(data);
+    document.getElementById('username').innerText = data['user']['username'];
+    
+  } catch (error) {
+    console.error("Error:", error);
+    alert(error);
+  }
+});
+
+document.getElementById('loginBtn').addEventListener("click", function () {
+  window.location.href = 'http://127.0.0.1:5500/front-end/login.html'
+})
+
+
 // chức năng log out
 async function logout() {
-  if (!localStorage.getItem('username') || !localStorage.getItem('user_id')) {
+  if (document.getElementById('username') == '') {
     alert('You are not logged in');
     return;
   }
 
   try {
-    const response = await fetch('http://127.0.0.1:3001/users/logout')
+    const response = await fetch('http://127.0.0.1:3001/users/logout');
 
-    if (!response) throw new Error('Logout failed');
+    if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
 
     const data = await response.json();
 
-    if (data.message === "Log out successful") {
-      localStorage.removeItem('username');
-      localStorage.removeItem('user_id');
-      alert(data.message);
-      window.location.href = 'http://127.0.0.1:5500/front-end/index.html';
-    } else {
-      alert('Failed to log out, please try again');
-    }
+    console.log(data);
+    alert(data);
+    document.getElementById('username').innerText = '';
+
   } catch(error) {
     console.error("Error: ", error);
-    alert('An error occurred. Please try again');
+    alert(error);
   }
 }
 
@@ -118,6 +127,7 @@ document.getElementById('saveChange').addEventListener('click', (e) => {
 })
 
 // show saved tours
+/*
 function showSavedTours() {
   user_id = localStorage.getItem('user_id');
 
@@ -180,7 +190,9 @@ function showSavedTours() {
   })
   .catch((error) => console.error("Error fetching tours:", error));
 }
+  */
 
+/*
 // show registered tours
 function showRegisteredTours () {
   const user_id = localStorage.getItem('user_id');
@@ -251,6 +263,7 @@ function showRegisteredTours () {
   })
   .catch((error) => console.error("Error fetching tours:", error));
 }
+  */
 
 // xoa tour khoi muc da luu
 function delete_saved_tour() {
